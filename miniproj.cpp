@@ -9,10 +9,15 @@ const int height = 400;
 
 int main(int argc, char **argv) {
 
-  Drawing draw(width, height);
+  /*Drawing draw(width, height);
   draw.createTestImage();
-  carre(draw, 100, 128);
+  draw.clearImage();
   draw.save(std::string("test_image.bmp"));
-
+*/
+  Figure MaFigure(200,190);
+  //MaFigure.clearImage();
+  for (int i=1; i<200; i++)
+    MaFigure.setPoint(i,i);
+  MaFigure.save(std::string("MaFigure.bmp"));
   return 0;
 }

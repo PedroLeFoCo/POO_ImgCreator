@@ -3,6 +3,23 @@
 
 #include "Drawing.h"
 
-void carre(Drawing MonImage, int size, int color);
+// Lorsqu'on déclare une classe dérivée, on utilise la syntaxe suivante : 
+class Figure : public Drawing {
+public:
+    Figure(const int width, const int height) : Drawing(width, height){
+        clearImage();
+    }
+    ~Figure() {
+        std::cout << "Deleting Figure " << Name << std::endl;
+    }
+    std::string Name;
+public:
+    char TransparentColor =0 ; 
+    void setPoint(int x, int y);
+    const std::vector<char> img();
+
+};
+
+
 
 #endif /* FIGURE_H */

@@ -10,6 +10,10 @@ public:
   ~Drawing();
 
   void save(std::string filename);
+  int getWidth();
+  int getHeight();
+
+protected:
   void clearImage();
   void createTestImage();
 

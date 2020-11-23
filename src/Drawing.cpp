@@ -40,7 +40,7 @@ void Drawing::save(std::string filename) {
 void Drawing::clearImage() {
   for (std::vector<char>::iterator it = image.begin(); it != image.end();
        it++) {
-    *it = 255;//0;
+    *it = 0;
   }
 }
 
@@ -51,4 +51,11 @@ void Drawing::createTestImage() {
       image[j * width + i] = (i + j) % 256;
     }
   }
+}
+
+int Drawing::getWidth()
+{  return width;
+}
+int Drawing::getHeight()
+{  return height;
 }
