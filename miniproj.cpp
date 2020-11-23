@@ -14,10 +14,14 @@ int main(int argc, char **argv) {
   draw.clearImage();
   draw.save(std::string("test_image.bmp"));
 */
-  Figure MaFigure(200,190);
+Point A;
+  Figure MaFigure(200,200);
   //MaFigure.clearImage();
-  for (int i=1; i<200; i++)
-    MaFigure.setPoint(i,i);
+  for (int i=0; i<=200; i++)
+  {  
+    A.set(i,i);
+    MaFigure.setPoint(A);
+  }
   MaFigure.save(std::string("MaFigure.bmp"));
   return 0;
 }

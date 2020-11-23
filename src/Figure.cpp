@@ -2,9 +2,23 @@
 #include <iostream>
 #include "Figure.h"
 
-void Figure::setPoint(int x, int y)
+Point::Point(int Newx, int Newy) //constructeur
 {
-        image[y * width + x] = 255;
+    x=Newx;
+    y=Newy;
+}
+Point::~Point()//destructeur
+{}
+
+void Point::set(int Newx, int Newy)
+{
+    x=Newx;
+    y=Newy;
+}
+
+void Figure::setPoint(Point P)
+{
+        image[P.y * width + P.x] = 255;
 }
 
 const std::vector<char> Figure::img()
