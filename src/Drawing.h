@@ -10,12 +10,12 @@ public:
   ~Drawing();
 
   void save(std::string filename);
-
-private:
   void clearImage();
   void createTestImage();
 
 private:
+
+public:
   const int width;
   const int height;
 

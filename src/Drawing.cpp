@@ -25,7 +25,8 @@ void Drawing::save(std::string filename) {
         "Drawing ne supporte que l'enregistrement d'images au format bmp");
   }
 
-  createTestImage();
+  //createTestImage();
+  //clearImage();
   stbi_write_bmp(filename.c_str(), width, height, 1, image.data());
 }
 
@@ -39,7 +40,7 @@ void Drawing::save(std::string filename) {
 void Drawing::clearImage() {
   for (std::vector<char>::iterator it = image.begin(); it != image.end();
        it++) {
-    *it = 0;
+    *it = 255;//0;
   }
 }
 
