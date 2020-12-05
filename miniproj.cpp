@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
     MaFigure.save(std::string("MaFigure.bmp"));
   Point B,C;
   B.set(150,150);
-  C.set(150,250);
+  C.set(50,50);
   Segment MonSegment(width,height, B,C);
 
   //MonSegment.Constructor(B,C);
@@ -47,7 +47,7 @@ int main(int argc, char **argv) {
         
     }
   }
-  B.set(150,250);
+  B.set(150,150);
   C.set(250,250);
   Segment MonSegment2(width,height, B,C);
 

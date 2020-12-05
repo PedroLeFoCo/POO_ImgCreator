@@ -48,12 +48,30 @@ void Segment::Constructor(Point A, Point B) //Constructeur
                 setPoint(P);
             }
     }
+    else if (A.x!=B.x && A.y!=B.y && (B.x-A.x)==(B.y-A.y) && (B.x-A.x)>0)//Segment oblique B/A
+    {
+        for (int i=A.x;i<=B.x;i++)
+            {
+                P.set(i,i);
+                //std::cout << "Point : " << P.x << "," << P.y << std::endl;
+                setPoint(P);
+            }
+    }
     else if (A.x!=B.x && A.y!=B.y && (A.x-B.x)==(B.y-A.y) && (A.x-B.x)>0)//Segment oblique B/A
     {
-        for (int i=(A.x-B.x);i<=0;i--)
+        for (int i=(A.x-B.x);i>=0;i--)
             {
-                P.set(B.x-i,B.y-i);
-                std::cout << "Point : " << P.x << "," << P.y << std::endl;
+                P.set(A.x-i,A.y+i);
+                //std::cout << "Point : " << P.x << "," << P.y << std::endl;
+                setPoint(P);
+            }
+    }
+    else if (A.x!=B.x && A.y!=B.y && (A.x-B.x)==(A.y-B.y) && (A.x-B.x)>0)//Segment oblique B/A
+    {
+        for (int i=(A.x-B.x);i>=0;i--)
+            {
+                P.set(A.x-i,A.y-i);
+                //std::cout << "Point : " << P.x << "," << P.y << std::endl;
                 setPoint(P);
             }
     }
