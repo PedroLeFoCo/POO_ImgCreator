@@ -23,13 +23,15 @@ int main(int argc, char **argv) {
     A.set(i,i);//x,y
     MaFigure.setPoint(A);
   }
+    MaFigure.save(std::string("MaFigure.bmp"));
   Point B,C;
   B.set(50,0);
   C.set(150,0);
   
   Segment MonSegment(B,C);
-  MonSegment.Constructor(B,C);
+  //MonSegment.Constructor(B,C);
+  MonSegment.save(std::string("Monsegment.bmp"));
 
-  MaFigure.save(std::string("MaFigure.bmp"));
+
   return 0;
 }

@@ -1,22 +1,29 @@
 #include "Segment.h"
 
 
-Segment::Segment(Point A, Point B)
+/*Segment::Segment(Point A, Point B)
  {Constructor(A,B);}
-
+*/
 void Segment::Constructor(Point A, Point B) //Constructeur
 {
+    
     Point P=A;
+    std::cout << "Constructor P : " << P.x <<"," << P.y << std::endl;
+    std::cout << "Constructor B : " << B.x <<"," << B.y << std::endl;
+                
+    //std::cout << "Constructor loading" << std::endl;
     if (A.x==B.x && A.y!=B.y) //Segment vertical
     {
         if (A.y<B.y)
-            for (int i= A.y;i>=B.y;i++)
+        {
+            for (int i=A.y;i<=B.y;i++)
             {
                 P.set(A.x,i);
                 setPoint(P);
             }
+        }
         else
-            for (int i= A.y;i<=B.y;i--)
+            for (int i= A.y;i>=B.y;i--)
             {
                 P.set(A.x,i);
                 setPoint(P);
@@ -25,18 +32,21 @@ void Segment::Constructor(Point A, Point B) //Constructeur
     else if (A.x!=B.x && A.y==B.y) //Segment horizontal
     {
         if (A.x<B.x)
-            for (int i= A.x;i>=B.x;i++)
+            for (int i=A.x;i<=B.x;i++)
             {
                 P.set(i,A.y);
+                std::cout << "Constructor P : " << P.x << std::endl;
                 setPoint(P);
             }
         else
-            for (int i= A.x;i<=B.x;i--)
+            for (int i=A.x;i>=B.x;i--)
             {
                 P.set(i,A.y);
                 setPoint(P);
             }
     }
+    std::cout << "Constructor End" << std::endl;
+    
 }
 
 Segment::~Segment()
