@@ -12,7 +12,7 @@ public:
   void save(std::string filename);
   int getWidth();
   int getHeight();
-  int getPointValue(int x, int y);
+  char getPointValue(int x, int y);
 
 //protected:
   void clearImage();

@@ -30,7 +30,7 @@ void Drawing::save(std::string filename) {
   stbi_write_bmp(filename.c_str(), width, height, 1, image.data());
 }
 
-int Drawing::getPointValue(int x, int y)
+char Drawing::getPointValue(int x, int y)
 {
   return image[y*width + x];
 

@@ -6,22 +6,8 @@
 */
 void Segment::Constructor(Point A, Point B) //Constructeur
 {
-    
-    Point P(0,0);
-    if (A.x>B.x) P.x=A.x; else P.x=B.x;
-    if (A.y>B.y) P.y=A.y; else P.y=B.y;
-    std::cout << "P.x=" << P.x << std::endl;
-    std::cout << "P.y=" << P.y << std::endl;
-    
-    image.resize((P.x +1) * (P.y+1));
-    std::cout << "image Width = " << getWidth() << std::endl;
-    std::cout << "image Height = " << getHeight() << std::endl;
-    
-    P=A;
-    std::cout << "Constructor P : " << P.x <<"," << P.y << std::endl;
-    std::cout << "Constructor B : " << B.x <<"," << B.y << std::endl;
-                
-    //std::cout << "Constructor loading" << std::endl;
+    Point P=A;
+   //std::cout << "Constructor loading" << std::endl;
     if (A.x==B.x && A.y!=B.y) //Segment vertical
     {
         if (A.y<B.y)
@@ -45,7 +31,6 @@ void Segment::Constructor(Point A, Point B) //Constructeur
             for (int i=A.x;i<=B.x;i++)
             {
                 P.set(i,A.y);
-                //std::cout << "Constructor P : " << P.x << std::endl;
                 setPoint(P);
             }
         else
@@ -55,8 +40,23 @@ void Segment::Constructor(Point A, Point B) //Constructeur
                 setPoint(P);
             }
     }
-    std::cout << "Constructor End" << std::endl;
-    
+    else if (A.x!=B.x && A.y!=B.y && (B.x-A.x)==(A.y-B.y) && (B.x-A.x)>0)//Segment oblique A/B
+    {
+        for (int i=0;i<=(B.x-A.x);i++)
+            {
+                P.set(A.x+i,A.x-i);
+                setPoint(P);
+            }
+    }
+    else if (A.x!=B.x && A.y!=B.y && (A.x-B.x)==(B.y-A.y) && (A.x-B.x)>0)//Segment oblique B/A
+    {
+        for (int i=(A.x-B.x);i<=0;i--)
+            {
+                P.set(B.x-i,B.y-i);
+                std::cout << "Point : " << P.x << "," << P.y << std::endl;
+                setPoint(P);
+            }
+    }
 }
 
 Segment::~Segment()
