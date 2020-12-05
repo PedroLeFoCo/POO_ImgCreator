@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
 
   Drawing draw(width, height);
   draw.createTestImage();
-  draw.clearImage();
+  //draw.clearImage();
   draw.save(std::string("test_image.bmp"));
 
   Point A;
@@ -25,12 +25,29 @@ int main(int argc, char **argv) {
   }
     MaFigure.save(std::string("MaFigure.bmp"));
   Point B,C;
-  B.set(50,0);
-  C.set(150,0);
-  
-  Segment MonSegment(B,C);
+  B.set(50,50);
+  C.set(50,250);
+  Segment MonSegment(width,height, B,C);
+
   //MonSegment.Constructor(B,C);
   MonSegment.save(std::string("Monsegment.bmp"));
+
+  for (int j = 0; j < height; j++) {
+    for (int i = 0; i < width; i++) {
+      //std::cout << "Point : " << i << "," << j << " --> " << MonSegment.getPointValue(i,j) << std::endl;
+      if (MonSegment.getPointValue(i,j) == -1)
+      {
+        //std::cout << "Point : " << i << "," << j << std::endl;
+          //B.set(i,j);
+        //draw.setPoint(B);
+        draw.image[(j * width) + i]=255;
+      }
+      //else
+        //std::cout << "Point : " << i << "," << j << ">>" << MonSegment.getPointValue(i,j) << std::endl;
+        
+    }
+  }
+  draw.save(std::string("test_image2.bmp"));
 
 
   return 0;

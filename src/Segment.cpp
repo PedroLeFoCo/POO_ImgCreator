@@ -7,7 +7,17 @@
 void Segment::Constructor(Point A, Point B) //Constructeur
 {
     
-    Point P=A;
+    Point P(0,0);
+    if (A.x>B.x) P.x=A.x; else P.x=B.x;
+    if (A.y>B.y) P.y=A.y; else P.y=B.y;
+    std::cout << "P.x=" << P.x << std::endl;
+    std::cout << "P.y=" << P.y << std::endl;
+    
+    image.resize((P.x +1) * (P.y+1));
+    std::cout << "image Width = " << getWidth() << std::endl;
+    std::cout << "image Height = " << getHeight() << std::endl;
+    
+    P=A;
     std::cout << "Constructor P : " << P.x <<"," << P.y << std::endl;
     std::cout << "Constructor B : " << B.x <<"," << B.y << std::endl;
                 
@@ -35,7 +45,7 @@ void Segment::Constructor(Point A, Point B) //Constructeur
             for (int i=A.x;i<=B.x;i++)
             {
                 P.set(i,A.y);
-                std::cout << "Constructor P : " << P.x << std::endl;
+                //std::cout << "Constructor P : " << P.x << std::endl;
                 setPoint(P);
             }
         else
