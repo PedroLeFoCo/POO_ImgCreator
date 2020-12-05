@@ -2,8 +2,16 @@
 #define FIGURE_H
 
 #include "Drawing.h"
-#include "Segment.h"
 
+class Point
+{
+    public:
+        Point(int x=0, int y=0); //constructeur
+        ~Point();//destructeur
+        void set(int x, int y);
+    int x;
+    int y;
+};
 
 // Lorsqu'on déclare une classe dérivée, on utilise la syntaxe suivante : 
 class Figure : public Drawing {

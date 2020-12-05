@@ -3,26 +3,25 @@
 
 #include <iostream>
 #include "Drawing.h"
+#include "Figure.h"
 
 
-class Point
+class Segment : public Figure
 {
     public:
-        Point(int x=0, int y=0); //constructeur
-        ~Point();//destructeur
-        void set(int x, int y);
-    int x;
-    int y;
-};
-
-class Segment
-{
+        //Segment(std::string Name) : Figure(Name)
+        Segment(Point A, Point B) : Figure(width, height){
+            Constructor( A,  B);
+        };
+        void Constructor(Point A, Point B);
     public:
-        Segment(Point A, Point B);
         ~Segment();
-    Point A;
-    Point B;
+         std::string Name="Segment";
+        Point A;
+        Point B;
 };
+
+
 
 
 #endif /* SEGMENT_H */

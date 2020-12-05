@@ -13,7 +13,7 @@ public:
   int getWidth();
   int getHeight();
 
-protected:
+//protected:
   void clearImage();
   void createTestImage();
 

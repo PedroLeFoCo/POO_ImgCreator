@@ -48,7 +48,8 @@ void Drawing::clearImage() {
 void Drawing::createTestImage() {
   for (int j = 0; j < height; j++) {
     for (int i = 0; i < width; i++) {
-      image[j * width + i] = (i + j) % 256;
+      image[(j * width) + i] = (i + j) % 256; //j-ème ligne et i-ème colonne
+      //image[(j * width) + i] = (j) % 256; //j-ème ligne et i-ème colonne
     }
   }
 }
