@@ -4,7 +4,7 @@
 /*Segment::Segment(Point A, Point B)
  {Constructor(A,B);}
 */
-void Segment::Constructor(Point A, Point B) //Constructeur
+void Segment::Constructor(Point A, Point B) //Constructeur qui trace le segment
 {
     Point P=A;
    //std::cout << "Constructor loading" << std::endl;
@@ -14,15 +14,15 @@ void Segment::Constructor(Point A, Point B) //Constructeur
         {
             for (int i=A.y;i<=B.y;i++)
             {
-                P.set(A.x,i);
-                setPoint(P);
+                P.set(A.x,i);//je "set" les coordonnées du point que je veux tracer
+                setPoint(P);//je met la valeur du point a 255
             }
         }
         else
             for (int i= A.y;i>=B.y;i--)
             {
                 P.set(A.x,i);
-                setPoint(P);
+                setPoint(P);//je met la valeur du point a 255
             }
     }
     else if (A.x!=B.x && A.y==B.y) //Segment horizontal
@@ -40,7 +40,7 @@ void Segment::Constructor(Point A, Point B) //Constructeur
                 setPoint(P);
             }
     }
-    else if (A.x!=B.x && A.y!=B.y && (B.x-A.x)==(A.y-B.y) && (B.x-A.x)>0)//Segment oblique A/B
+    else if (A.x!=B.x && A.y!=B.y && (B.x-A.x)==(A.y-B.y) && (B.x-A.x)>0)//Segment oblique A/B a 45°
     {
         for (int i=0;i<=(B.x-A.x);i++)
             {
