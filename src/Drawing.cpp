@@ -11,7 +11,8 @@
 // |_|
 
 Drawing::Drawing(const int width, const int height)
-    : width(width), height(height) {
+    : width(width), height(height) 
+    {
   image.resize(width * height);
 }
 
@@ -51,9 +52,12 @@ void Drawing::clearImage() {
 }
 
 /* Set image to test */
-void Drawing::createTestImage() {
-  for (int j = 0; j < height; j++) {
-    for (int i = 0; i < width; i++) {
+void Drawing::createTestImage() 
+{
+  for (int j = 0; j < height; j++) 
+  {
+    for (int i = 0; i < width; i++) 
+    {
       image[(j * width) + i] = (i + j) % 256; //j-ème ligne et i-ème colonne
       //image[(j * width) + i] = (j) % 256; //j-ème ligne et i-ème colonne
     }
