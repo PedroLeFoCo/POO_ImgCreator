@@ -1,11 +1,12 @@
 #include <iostream>
 
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include <stb_image_write.h>
-#include <stdexcept>
-
 #include "Figure.h"
 
+//#ifndef STB_IMAGE_WRITE_IMPLEMENTATION
+  //#define STB_IMAGE_WRITE_IMPLEMENTATION
+  //#include <stb_image_write.h>
+  //#include <stdexcept>
+//#endif
 
 Point::Point(int Newx, int Newy) //constructeur
 {
@@ -57,5 +58,10 @@ void Figure::save(std::string filename) {
 
   //createTestImage();
   //clearImage();
-  stbi_write_bmp(filename.c_str(), width, height, 1, img.data());
+  //stbi_write_bmp(filename.c_str(), width, height, 1, img.data());
+}
+char Figure::getPointValue(int x, int y)
+{
+  return img[y*width + x];
+
 }

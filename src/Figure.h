@@ -1,6 +1,11 @@
 #ifndef FIGURE_H
 #define FIGURE_H
 
+//#define STB_IMAGE_WRITE_IMPLEMENTATION
+//#include <stb_image_write.h>
+//#include <stdexcept>
+
+
 #include <string>
 #include <vector>
 
@@ -18,7 +23,7 @@ class Point
 class Figure //: public Drawing 
 {
 public:
-    Figure(int width, int height, Point coord): width(width), height(height), coord(coord) {}// : Drawing(width, height)
+    Figure(int width, int height, Point coord);//: width(width), height(height), coord(coord) {}// : Drawing(width, height)
     ~Figure();
 
     std::string Name;
@@ -32,13 +37,11 @@ public:
 
     char TransparentColor =0 ; 
     void setPoint(Point P);
-    const std::vector<char> img;
-private:
+    std::vector<char> img;
+//protected:
     const int width;
     const int height;
     Point coord;
-
-
 };
 
 

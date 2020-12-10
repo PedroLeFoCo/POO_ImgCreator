@@ -2,7 +2,7 @@
 #include <string>
 
 #include "Drawing.h"
-#include "Figure.h"
+//#include "Figure.h"
 #include "Segment.h"
 
 const int width = 300;
@@ -16,7 +16,8 @@ int main(int argc, char **argv) {
   draw.save(std::string("test_image.bmp"));
 
   Point A;
-  Figure MaFigure(width,height);
+  A.set(0,0);
+  Figure MaFigure(width,height, A);
   //MaFigure.clearImage();
   for (int i=0; i<=200; i++)
   {  

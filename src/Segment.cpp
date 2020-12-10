@@ -1,6 +1,11 @@
 #include "Segment.h"
 
-
+/*//#ifndef STB_IMAGE_WRITE_IMPLEMENTATION
+    #define STB_IMAGE_WRITE_IMPLEMENTATION
+    #include <stb_image_write.h>
+    #include <stdexcept>
+#endif
+*/
 /*Segment::Segment(Point A, Point B)
  {Constructor(A,B);}
 */
