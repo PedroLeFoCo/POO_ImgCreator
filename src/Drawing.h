@@ -11,11 +11,11 @@ public:
 
   void save(std::string filename);
 
-private:
+//private:
   void clearImage();
   void createTestImage();
 
-private:
+//private:
   const int width;
   const int height;
 
