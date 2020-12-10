@@ -1,6 +1,11 @@
 #ifndef DRAWING_H
 #define DRAWING_H
 
+//#define STB_IMAGE_WRITE_IMPLEMENTATION
+//#include <stb_image_write.h>
+//#include <stdexcept>
+
+#include "Figure.h"
 #include <string>
 #include <vector>
 

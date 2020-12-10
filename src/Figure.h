@@ -1,7 +1,13 @@
 #ifndef FIGURE_H
 #define FIGURE_H
 
-#include "Drawing.h"
+//#define STB_IMAGE_WRITE_IMPLEMENTATION
+//#include <stb_image_write.h>
+//#include <stdexcept>
+
+
+#include <string>
+#include <vector>
 
 class Point
 {
@@ -14,20 +20,28 @@ class Point
 };
 
 // Lorsqu'on déclare une classe dérivée, on utilise la syntaxe suivante : 
-class Figure : public Drawing {
+class Figure //: public Drawing 
+{
 public:
-    Figure(const int width, const int height) : Drawing(width, height){
-        clearImage();
-    }
-    ~Figure() {
-        std::cout << "Deleting Figure " << Name << std::endl;
-    }
+    Figure(int width, int height, Point coord);//: width(width), height(height), coord(coord) {}// : Drawing(width, height)
+    ~Figure();
+
     std::string Name;
-public:
+    void save(std::string filename);
+    int getWidth();
+    int getHeight();
+    char getPointValue(int x, int y);
+
+//protected:
+    void clearFigure();
+
     char TransparentColor =0 ; 
     void setPoint(Point P);
-    const std::vector<char> img();
-
+    std::vector<char> img;
+//protected:
+    const int width;
+    const int height;
+    Point coord;
 };
 
 
