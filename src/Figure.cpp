@@ -1,12 +1,8 @@
 #include <iostream>
 
 #include "Figure.h"
+#include "Save.h"
 
-//#ifndef STB_IMAGE_WRITE_IMPLEMENTATION
-  //#define STB_IMAGE_WRITE_IMPLEMENTATION
-  //#include <stb_image_write.h>
-  //#include <stdexcept>
-//#endif
 
 Point::Point(int Newx, int Newy) //constructeur
 {
@@ -51,14 +47,7 @@ void Figure::clearFigure() {
 
 void Figure::save(std::string filename) {
 
-  if (filename.substr(filename.find_last_of(".") + 1) != "bmp") {
-    throw std::runtime_error(
-        "Figure ne supporte que l'enregistrement d'images au format bmp");
-  }
-
-  //createTestImage();
-  //clearImage();
-  //stbi_write_bmp(filename.c_str(), width, height, 1, img.data());
+  SaveImg(filename, img, width, height);
 }
 char Figure::getPointValue(int x, int y)
 {
