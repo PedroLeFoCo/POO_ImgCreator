@@ -1,11 +1,6 @@
 #ifndef DRAWING_H
 #define DRAWING_H
 
-//#define STB_IMAGE_WRITE_IMPLEMENTATION
-//#include <stb_image_write.h>
-//#include <stdexcept>
-
-#include "Figure.h"
 #include <string>
 #include <vector>
 
@@ -15,17 +10,12 @@ public:
   ~Drawing();
 
   void save(std::string filename);
-  int getWidth();
-  int getHeight();
-  char getPointValue(int x, int y);
 
-//protected:
+//private:
   void clearImage();
   void createTestImage();
 
-private:
-
-public:
+//private:
   const int width;
   const int height;
 
