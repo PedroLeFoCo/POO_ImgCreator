@@ -3,26 +3,27 @@
 
 #include <string>
 #include <vector>
-
-#include "Drawing.h"
 #include "Figure.h"
+#include <iostream>
 
 class Rectangle : public Figure
 {
     public:
-        //Segment(std::string Name) : Figure(Name)
-        Rectangle(const int width, const int height, Point A, Point B) : Figure (width, height)
+        Rectangle(int width,int height) : Figure (width, height)
         {
-            Constructor( A,  B);
-        };
-        void Constructor(Point A, Point B);
+        
+        }
+        ~Rectangle()        //destructeur
+        {
+            std::cout << "Deleting Figure " << Name << std::endl;
+        }
+        std::string Name;
+    private:
+        Point AngleBasGauche;
+        int longueur_h;
+        int largeur_w;
+
     public:
-        ~Rectangle();
-         std::string Name="Rectangle";
-        Point A;
-        Point B;
+    void tracerRectangle(Point AngleBasGauche, int longueur_w, int longueur_h); 
 };
-
-
-
 #endif /* RECTANGLE_H */

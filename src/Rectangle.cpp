@@ -1,13 +1,55 @@
 #include "Rectangle.h"
 
-void Rectangle::Constructor(const int width, const int height, Point A, Point B) //Constructeur qui trace le rectangle
+void Rectangle::tracerRectangle(Point AngleBasGauche, int longueur_w, int longueur_h) //Constructeur qui trace le rectangle
 {
-    Drawing(Point(0,0), Point(0,width));                    //   _
+    float a;   
+    int x1,x2;  //Coordonnées en abscisse des angles du rectangle
+    int y1,y2;  //Coordonnées en ordonnée des angles du rectangle
+    Point trace;
 
-    Drawing(Point(0,0), Point(height,0));                   //  |_
-                                                                //   _
-    Drawing(Point(height,0), Point(height,width));          //  |_
-                                                                //   _
-    Drawing(Point(height,width), Point(0,width));           //  |_|
+                                            //  _
+    x1=AngleBasGauche.x;
+    x2=x1+longueur_w;
+
+    for(int i=x1; i<x2; i++)
+    {
+        trace.set(i,AngleBasGauche.y);
+        setPoint(trace);
+    }
+
+                                            //  |_
+    y1=AngleBasGauche.y;
+    y2=y1+longueur_h;
+
+    for(int i=y1; i<y2; i++)
+    {
+        trace.set(AngleBasGauche.x,i);
+        setPoint(trace);
+    }
+                                            //   _
+                                            //  |_
+    x1=AngleBasGauche.x;
+    x2=x1+longueur_w;
+    y1=AngleBasGauche.y;
+    y2=y1+longueur_h;
+
+    for(int i=x1; i<x2; i++)
+    {
+        trace.set(i,y2);
+        setPoint(trace);
+    }
+
+                                            //   _
+                                            //  |_|
+    x1=AngleBasGauche.x;
+    x2=x1+longueur_w;
+    y1=AngleBasGauche.y;
+    y2=y1+longueur_h;
+
+    for(int i=y1; i<y2; i++)
+    {
+        trace.set(x2,i);
+        setPoint(trace);
+    }
+
 }
-
