@@ -1,15 +1,15 @@
-#include "Rectangle.h"
+#include "Carre.h"
 
-void Rectangle::tracerRectangle(Point AngleBasGauche, int longueur_w, int longueur_h) //Constructeur qui trace le rectangle
+void Carre::tracerCarre(Point AngleBasGauche, int cote) //Constructeur qui trace le carre
 {
     float a;   
-    int x1,x2;  //Coordonnées en abscisse des angles du rectangle
-    int y1,y2;  //Coordonnées en ordonnée des angles du rectangle
+    int x1,x2;  //Coordonnées en abscisse des angles du carre
+    int y1,y2;  //Coordonnées en ordonnée des angles du carre
     Point trace;
 
                                             //  _
     x1=AngleBasGauche.x;
-    x2=x1+longueur_w;
+    x2=x1+cote;
 
     for(int i=x1; i<x2; i++)
     {
@@ -19,7 +19,7 @@ void Rectangle::tracerRectangle(Point AngleBasGauche, int longueur_w, int longue
 
                                             //  |_
     y1=AngleBasGauche.y;
-    y2=y1+longueur_h;
+    y2=y1+cote;
 
     for(int i=y1; i<y2; i++)
     {
@@ -29,9 +29,9 @@ void Rectangle::tracerRectangle(Point AngleBasGauche, int longueur_w, int longue
                                             //   _
                                             //  |_
     x1=AngleBasGauche.x;
-    x2=x1+longueur_w;
+    x2=x1+cote;
     y1=AngleBasGauche.y;
-    y2=y1+longueur_h;
+    y2=y1+cote;
 
     for(int i=x1; i<x2; i++)
     {
@@ -42,9 +42,9 @@ void Rectangle::tracerRectangle(Point AngleBasGauche, int longueur_w, int longue
                                             //   _
                                             //  |_|
     x1=AngleBasGauche.x;
-    x2=x1+longueur_w;
+    x2=x1+cote;
     y1=AngleBasGauche.y;
-    y2=y1+longueur_h;
+    y2=y1+cote;
 
     for(int i=y1; i<y2; i++)
     {
