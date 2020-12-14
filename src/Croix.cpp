@@ -2,29 +2,23 @@
 
 
 
-void Croix::tracerCroix(Point centre,int longueur_h,int longueur_v)
+void Croix::tracerCroix()
 {
-    float a;
-    int x1,x2;  //Points croix horizontale
-    int y1,y2;  //Points croix verticale
-    Point trace;
 
-    //D'abord on trace la ligne verticale 
-    y1=centre.y-(longueur_v/2);
-    y2=centre.y+(longueur_v/2);
-    for(int i=y1;i<y2;i++)
+    //Dessin de la ligne verticale a partir du centre de la croix
+    for(int i=m_Centre.getCoordY()-(m_iLongueur_v/2);i<m_Centre.getCoordY()+(m_iLongueur_v/2);i++)
     {
-        trace.set(centre.x,i);//x,y
-        setPoint(trace);
+        //trace.set(m_Centre.x,i);//x,y
+        //setPoint();
+        m_Centre.setPoint(m_iLongueur_v);
     }
 
-    //Puis la ligne horizontale 
-    x1=centre.x-(longueur_h/2);
-    x2=centre.x+(longueur_h/2);
-    for(int i=x1;i<x2;i++)
+    //Dessin de la ligne horizontale a partir du centre de la croix
+    for(int i=m_Centre.getCoordX()-(m_iLongueur_h/2);i<m_Centre.getCoordX()+(m_iLongueur_h/2);i++)
     {
-        trace.set(i,centre.y);//x,y
-        setPoint(trace);
+        //trace.set(i,m_Centre.y);//x,y
+        //setPoint(trace);
+        m_Centre.setPoint(m_iLongueur_h);
     }
 
 }

@@ -3,15 +3,17 @@
 
 #include <string>
 #include <vector>
-#include "Figure.h"
 #include <iostream>
+
+#include "Figure.h"
+
 
 class Rectangle : public Figure
 {
     public:
-        Rectangle(int width,int height) : Figure (width, height)
-        {
-        
+        Rectangle(int width,int height) {
+            m_iLongueur_v=height;
+            m_iLongueur_h=width;
         }
         ~Rectangle()        //destructeur
         {
@@ -19,11 +21,11 @@ class Rectangle : public Figure
         }
         std::string Name;
     private:
-        Point AngleBasGauche;
-        int longueur_h;
-        int largeur_w;
+        Point m_PointAngleBasGauche;
+        int m_iLongueur_h;  //Membre de la classe Croix -> Longueur Trait Horizontal    
+        int m_iLongueur_v;  //Membre de la classe Croix -> Longueur Trait Vertical
 
     public:
-    void tracerRectangle(Point AngleBasGauche, int longueur_w, int longueur_h); 
+    void tracerRectangle(); 
 };
 #endif /* RECTANGLE_H */

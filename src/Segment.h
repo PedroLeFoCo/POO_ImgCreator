@@ -10,7 +10,8 @@ class Segment : public Figure
 {
     public:
         //Segment(std::string Name) : Figure(Name)
-        Segment(const int width, const int height, Point A, Point B) : Figure(width, height, coord){
+        //Segment(const int width, const int height, Point A, Point B) : Figure(width, height, coord){
+        Segment(const int width, const int height, Point A, Point B) : Figure(width, height){    
             Constructor( A,  B);
         };
         void Constructor(Point A, Point B);

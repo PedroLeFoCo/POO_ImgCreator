@@ -19,6 +19,8 @@ public:
   const int width;
   const int height;
 
+  //Figure m_Figure;
+
   std::vector<char> image;
 };
 

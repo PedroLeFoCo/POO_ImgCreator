@@ -1,55 +1,46 @@
 #include "Rectangle.h"
 
-void Rectangle::tracerRectangle(Point AngleBasGauche, int longueur_w, int longueur_h) //Constructeur qui trace le rectangle
+void Rectangle::tracerRectangle() //Constructeur qui trace le rectangle
 {
     float a;   
-    int x1,x2;  //Coordonnées en abscisse des angles du rectangle
-    int y1,y2;  //Coordonnées en ordonnée des angles du rectangle
-    Point trace;
-
+    //Point trace(0,0);
+    m_PointAngleBasGauche.setCoordX(0);
+    m_PointAngleBasGauche.setCoordY(0);
                                             //  _
-    x1=AngleBasGauche.x;
-    x2=x1+longueur_w;
 
-    for(int i=x1; i<x2; i++)
+    for(int i=m_PointAngleBasGauche.getCoordX(); i<m_PointAngleBasGauche.getCoordX()+m_iLongueur_h; i++)
     {
-        trace.set(i,AngleBasGauche.y);
-        setPoint(trace);
+        //trace.set(i,m_PointAngleBasGauche.y);
+        //setPoint(trace);
+        m_PointAngleBasGauche.setPoint(m_iLongueur_h);
     }
 
                                             //  |_
-    y1=AngleBasGauche.y;
-    y2=y1+longueur_h;
 
-    for(int i=y1; i<y2; i++)
+    for(int i=m_PointAngleBasGauche.getCoordY(); i<m_PointAngleBasGauche.getCoordY()+m_iLongueur_v; i++)
     {
-        trace.set(AngleBasGauche.x,i);
-        setPoint(trace);
+        //trace.set(m_PointAngleBasGauche.x,i);
+        //setPoint(trace);
+        m_PointAngleBasGauche.setPoint(m_iLongueur_v);
     }
                                             //   _
                                             //  |_
-    x1=AngleBasGauche.x;
-    x2=x1+longueur_w;
-    y1=AngleBasGauche.y;
-    y2=y1+longueur_h;
 
-    for(int i=x1; i<x2; i++)
+    for(int i=m_PointAngleBasGauche.getCoordX(); i<m_PointAngleBasGauche.getCoordX()+m_iLongueur_h; i++)
     {
-        trace.set(i,y2);
-        setPoint(trace);
+        //trace.set(i,y2);
+        //setPoint(trace);
+        m_PointAngleBasGauche.setPoint(m_iLongueur_h);
     }
 
                                             //   _
                                             //  |_|
-    x1=AngleBasGauche.x;
-    x2=x1+longueur_w;
-    y1=AngleBasGauche.y;
-    y2=y1+longueur_h;
 
-    for(int i=y1; i<y2; i++)
+    for(int i=m_PointAngleBasGauche.getCoordY(); i<m_PointAngleBasGauche.getCoordY()+m_iLongueur_v; i++)
     {
-        trace.set(x2,i);
-        setPoint(trace);
+        //trace.set(x2,i);
+        //setPoint(trace);
+        m_PointAngleBasGauche.setPoint(m_iLongueur_v);
     }
 
 }
