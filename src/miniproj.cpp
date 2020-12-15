@@ -74,11 +74,13 @@ int main(int argc, char **argv) {
   }
 */
 
-  draw.save(std::string("test_image2.bmp"));
+    draw.save(std::string("test_image2.bmp"));
 
     Croix *maCroix1=new Croix(50,50);
-
+    Figure *maFigureCroix= new Figure(maCroix1);
     maCroix1->tracerCroix();
+/*    draw.ListeFigure.push_back(maFigureCroix);
+    draw.DrawFigure();
 
     Figure *maFigureCroix= new Figure(maCroix1);
     //Draw Croix    
@@ -86,6 +88,10 @@ int main(int argc, char **argv) {
     Figure *maFigureRectangle = new Figure(monRectangle);
     monRectangle->tracerRectangle();
 
-    draw.save(std::string("GoodTest.bmp"));
+    draw.ListeFigure.push_back(maFigureCroix);
+    draw.ListeFigure.push_back(maFigureRectangle);
+
+    draw.DrawFigure();
+    draw.save(std::string("GoodTest.bmp"));*/
   return 0;
 }

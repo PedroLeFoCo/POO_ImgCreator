@@ -8,11 +8,12 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 #include "Save.h"
-#include "Point.h"
 
 class Croix;
 class Rectangle;
+class Point;
 
 // Lorsqu'on déclare une classe dérivée, on utilise la syntaxe suivante : 
 class Figure //: public Drawing 
@@ -26,16 +27,17 @@ public:
 
     std::string Name;
     void save(std::string filename);
-    int getWidth();
-    int getHeight();
+    int getWidth(){return m_iWidth;}
+    int getHeight(){return m_iHeight;}
     char getPointValue(int x, int y);
     void setPoint(Point P);
+    const std::vector<char> getImg(){return m_Img;}
 
 protected:
     void clearFigure();
 
     char TransparentColor =0 ;     
-    std::vector<char> img;
+    std::vector<char> m_Img;
 //protected:
     int m_iWidth;
     int m_iHeight;

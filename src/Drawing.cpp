@@ -43,3 +43,18 @@ void Drawing::createTestImage() {
     }
   }
 }
+
+/* Draw figure */
+void Drawing::DrawFigure() 
+{    
+    for (int j = 0; j < ListeFigure.at(0)->getHeight(); j++) 
+    {
+        for (int i = 0; i < ListeFigure.at(0)->getWidth(); i++) 
+        {
+            if(ListeFigure.at(0)->getImg()[j * width + i]==255)
+            {
+                image[j * width + i] = ListeFigure.at(0)->getImg()[j * width + i];
+            }            
+        }
+    }
+}

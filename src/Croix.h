@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "Figure.h"
+#include "Point.h"
 
 // Lorsqu'on déclare une classe dérivée, on utilise la syntaxe suivante : 
 class Croix : public Figure {

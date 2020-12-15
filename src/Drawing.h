@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "Figure.h"
 
 class Drawing {
 public:
@@ -14,6 +15,7 @@ public:
 //private:
   void clearImage();
   void createTestImage();
+  void DrawFigure();
 
 //private:
   const int width;
@@ -22,6 +24,7 @@ public:
   //Figure m_Figure;
 
   std::vector<char> image;
+  std::vector<Figure*> ListeFigure;
 };
 
 #endif /* DRAWIN_H */
