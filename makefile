@@ -9,8 +9,8 @@ OBJ = miniproj.o Drawing.o Save.o Figure.o Rectangle.o Croix.o Point.o
 $(APP): $(OBJ)
 	g++ $(CFLAGS) -o $(APP) $(OBJ) $(LDFLAGS)
 
-miniproj.o: src/miniproj.cpp
-	g++ $(CFLAGS) -c src/miniproj.cpp $(LDFLAGS)
+miniproj.o: miniproj.cpp
+	g++ $(CFLAGS) -c miniproj.cpp $(LDFLAGS)
 
 Drawing.o: src/Drawing.cpp
 	g++ $(CFLAGS) -c src/Drawing.cpp $(LDFLAGS)

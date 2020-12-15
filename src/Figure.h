@@ -31,9 +31,9 @@ public:
     int getHeight(){return m_iHeight;}
     char getPointValue(int x, int y);
     void setPoint(Point P);
-    const std::vector<char> getImg(){return m_Img;}
+    std::vector<char> getImg(){return m_Img;}
 
-protected:
+//protected:
     void clearFigure();
 
     char TransparentColor =0 ;     

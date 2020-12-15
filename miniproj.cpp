@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
   //Drawing drawingCroix(width);
   draw.createTestImage();
   //draw.clearImage();
-  draw.save(std::string("test_image.bmp"));
+  //draw.save(std::string("test_image.bmp"));
 
   //Point A;
   //A.set(0,0);
@@ -77,11 +77,15 @@ int main(int argc, char **argv) {
     draw.save(std::string("test_image2.bmp"));
 
     Croix *maCroix1=new Croix(50,50);
-    Figure *maFigureCroix= new Figure(maCroix1);
     maCroix1->tracerCroix();
-/*    draw.ListeFigure.push_back(maFigureCroix);
+    //Figure *maFigureCroix= new Figure(maCroix1);
+    
+    std::cout<<maCroix1->m_Img.size()<<std::endl;
+    draw.ListeFigure.push_back(maCroix1);
+    std::cout<<draw.ListeFigure.at(0)->m_Img.size()<<std::endl;
     draw.DrawFigure();
-
+    draw.save(std::string("GoodTest.bmp"));
+/*
     Figure *maFigureCroix= new Figure(maCroix1);
     //Draw Croix    
     Rectangle *monRectangle=new Rectangle(70,70);

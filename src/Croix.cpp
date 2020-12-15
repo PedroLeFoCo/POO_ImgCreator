@@ -4,6 +4,7 @@
 
 void Croix::tracerCroix()
 {    
+    m_Img.resize(m_iWidth * m_iHeight);
     //Dessin de la ligne verticale a partir du centre de la croix
     for(int i=m_Centre.getCoordY()-(m_iLongueur_v/2);i<m_Centre.getCoordY()+(m_iLongueur_v/2);i++)
     {

@@ -47,14 +47,24 @@ void Drawing::createTestImage() {
 /* Draw figure */
 void Drawing::DrawFigure() 
 {    
+    std::cout<<"Start Draw"<<std::endl;
+    std::cout<<ListeFigure.at(0)->m_Img.size()<<std::endl;
+    std::cout<<ListeFigure.at(0)->getHeight()<<std::endl;
     for (int j = 0; j < ListeFigure.at(0)->getHeight(); j++) 
     {
         for (int i = 0; i < ListeFigure.at(0)->getWidth(); i++) 
         {
-            if(ListeFigure.at(0)->getImg()[j * width + i]==255)
+            //std::cout<<std::isprint(ListeFigure.at(0)->getImg()[j * width + i])<<std::endl;
+            //std::string s(ListeFigure.at(0)->getImg().begin(),ListeFigure.at(0)->getImg().end());
+            //std::cout<<s<<std::endl;
+            if(ListeFigure.at(0)->m_Img.at(j * ListeFigure.at(0)->getWidth() + i)==255)
             {
-                image[j * width + i] = ListeFigure.at(0)->getImg()[j * width + i];
+                std::cout<<"Pixel Dessine"<<i<<" "<<j<<" "<<std::endl;
+                //image[j * width + i] = ListeFigure.at(0)->getImg()[j * width + i];
+                image.at(j * width + i) = 255;
             }            
+            
         }
     }
+
 }

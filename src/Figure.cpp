@@ -29,7 +29,7 @@ Figure::Figure(Croix *uneCroix)
 {    
     m_iHeight=uneCroix->getLongueur_v();
     m_iWidth=uneCroix->getLongueur_h();
-    m_Img.resize(m_iWidth * m_iHeight);
+    //m_Img.resize(m_iWidth * m_iHeight);
     std::cout<<"Size of img"<<m_Img.size()<<std::endl;
 }
 /*
@@ -59,8 +59,8 @@ char Figure::getPointValue(int x, int y)
 }
 
 void Figure::setPoint(Point Pixel)
-{
-    m_Img.resize(m_iWidth * m_iHeight);
+{    
     std::cout<<m_Img.size()<<std::endl;
-    m_Img[Pixel.getCoordY() * m_iWidth + Pixel.getCoordX()]=255;
+    //m_Img[Pixel.getCoordY() * m_iWidth + Pixel.getCoordX()]=255;
+    m_Img.at(Pixel.getCoordY() * m_iWidth + Pixel.getCoordX())=255;
 }
