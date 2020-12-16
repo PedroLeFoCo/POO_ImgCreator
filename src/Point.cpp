@@ -1,9 +1,13 @@
-#include "Figure.h"
 #include "Point.h"
 
-void Point::setPoint(int width)
+Point::Point(){}
+
+Point::Point(int coordX, int coordY)
 {
-    std::cout<<"Methode set point "<<m_iy<<" "<<m_ix<<" "<<width<<std::endl;
-    std::cout<<m_Img.size()<<std::endl;
-    m_Img[m_iy * width + m_ix]=255;
+    m_iPointCoordX=coordX;
+    m_iPointCoordY=coordY;
+}
+
+Point::~Point()
+{
 }

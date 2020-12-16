@@ -1,5 +1,5 @@
+#include <iostream>
 #include "Drawing.h"
-#include "Save.h"
 
 
 //            _    _  _                     _    _           _
@@ -9,16 +9,24 @@
 // |_|
 
 Drawing::Drawing(const int width, const int height)
-    : width(width), height(height) {
-  image.resize(width * height);
+    : m_DrawingWidth(width), m_DrawingHeight(height) {
+  m_DrawingImage.resize(width * height);
 }
 
+Drawing::Drawing(std::vector<Figure*> VectorFigure,std::vector<Point*> VectorPointOrigine, const int width, const int height)
+  : m_DrawingWidth(width), m_DrawingHeight(height)
+{
+  m_VectorFigures = VectorFigure;
+  m_VectorPointsOrigine = VectorPointOrigine;
+  m_DrawingImage.resize(width * height);
+
+}
 Drawing::~Drawing() {}
 
-/* Save image to file "filename" */
+/* Save image to file  ="filename" */
 void Drawing::save(std::string filename) {
 
-  SaveImg(filename, image, width, height);
+  SaveImg(filename, m_DrawingImage, m_DrawingWidth, m_DrawingHeight);
 }
 
 //            _             _                      _    _           _
@@ -29,7 +37,7 @@ void Drawing::save(std::string filename) {
 
 /* Set every point of the image to 0 */
 void Drawing::clearImage() {
-  for (std::vector<char>::iterator it = image.begin(); it != image.end();
+  for (std::vector<char>::iterator it = m_DrawingImage.begin(); it != m_DrawingImage.end();
        it++) {
     *it = 0;
   }
@@ -37,34 +45,35 @@ void Drawing::clearImage() {
 
 /* Set image to test */
 void Drawing::createTestImage() {
-  for (int j = 0; j < height; j++) {
-    for (int i = 0; i < width; i++) {
-      image[j * width + i] = (i + j) % 256;
+  for (int j = 0; j < m_DrawingHeight; j++) {
+    for (int i = 0; i < m_DrawingWidth; i++) {
+      m_DrawingImage[j * m_DrawingWidth + i] = (i + j) % 256;
     }
   }
 }
 
-/* Draw figure */
-void Drawing::DrawFigure() 
-{    
-    std::cout<<"Start Draw"<<std::endl;
-    std::cout<<ListeFigure.at(0)->m_Img.size()<<std::endl;
-    std::cout<<ListeFigure.at(0)->getHeight()<<std::endl;
-    for (int j = 0; j < ListeFigure.at(0)->getHeight(); j++) 
+void Drawing::DrawFigure()
+{
+    std::cout<<"In DRAW FIGURE"<<std::endl;
+    std::cout<<m_DrawingPointOrigine->getPointCoordX()<<std::endl;
+    std::cout<<m_VectorFigures.at(0)->getFigureWidth()<<std::endl;
+    std::cout<<m_VectorFigures.at(0)->getFigureHeight()<<std::endl;
+  //Tracer la figure sur le draw
+  for(int n=0;n<m_VectorFigures.size();n++)
+  {
+    for(int i=m_VectorPointsOrigine.at(n)->getPointCoordY(); i < m_VectorPointsOrigine.at(n)->getPointCoordY()+m_VectorFigures.at(n)->getFigureHeight(); i++)
     {
-        for (int i = 0; i < ListeFigure.at(0)->getWidth(); i++) 
+        for(int j=m_VectorPointsOrigine.at(n)->getPointCoordX(); j < m_VectorPointsOrigine.at(n)->getPointCoordX()+m_VectorFigures.at(n)->getFigureWidth(); j++)
+        {        
+            int numChar = i * m_DrawingWidth + j;
+            m_DrawingImage.at(numChar) = 255;
+        }
+        for(int l=m_VectorPointsOrigine.at(n)->getPointCoordX()+m_VectorFigures.at(n)->getFigureWidth();l<m_DrawingWidth;l++)
         {
-            //std::cout<<std::isprint(ListeFigure.at(0)->getImg()[j * width + i])<<std::endl;
-            //std::string s(ListeFigure.at(0)->getImg().begin(),ListeFigure.at(0)->getImg().end());
-            //std::cout<<s<<std::endl;
-            if(ListeFigure.at(0)->m_Img.at(j * ListeFigure.at(0)->getWidth() + i)==255)
-            {
-                std::cout<<"Pixel Dessine"<<i<<" "<<j<<" "<<std::endl;
-                //image[j * width + i] = ListeFigure.at(0)->getImg()[j * width + i];
-                image.at(j * width + i) = 255;
-            }            
-            
+            int numChar = i * (m_DrawingWidth)+ l;
+            m_DrawingImage.at(numChar) = 0;
         }
     }
+  }
 
 }

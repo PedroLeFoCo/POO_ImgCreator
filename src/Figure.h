@@ -1,48 +1,43 @@
 #ifndef FIGURE_H
 #define FIGURE_H
 
-//#define STB_IMAGE_WRITE_IMPLEMENTATION
-//#include <stb_image_write.h>
-//#include <stdexcept>
-
-
 #include <string>
 #include <vector>
-#include <iostream>
-#include "Save.h"
+#include "Point.h"
 
-class Croix;
 class Rectangle;
-class Point;
+class Segment;
+class Croix;
+class Carre;
 
 // Lorsqu'on déclare une classe dérivée, on utilise la syntaxe suivante : 
 class Figure //: public Drawing 
 {
 public:
-    Figure(Croix *uneCroix);    //Constructeur de figure instancie croix
-    Figure(Rectangle *unRectangle); //Constructeur...Rectangle
-    Figure(int width, int height); //Constructeur...Rectangle
-    Figure();
+    //Figure(int width, int height, Point coord);//: width(width), height(height), coord(coord) {}// : Drawing(width, height)
+    Figure();//Default Constructor
+    Figure(Rectangle* rectangle);
+    Figure(Carre* carre);
+    Figure(Croix* croix);
+    Figure(Segment* segment);
     ~Figure();
 
     std::string Name;
-    void save(std::string filename);
-    int getWidth(){return m_iWidth;}
-    int getHeight(){return m_iHeight;}
-    char getPointValue(int x, int y);
-    void setPoint(Point P);
-    std::vector<char> getImg(){return m_Img;}
-
-//protected:
+    //Methods
+    void save(std::string filename, int figureWidth, int figureHeight);
     void clearFigure();
+    //Getters
+    int getFigureWidth(){return m_iFigureWidth;}
+    int getFigureHeight(){return m_iFigureHeight;}
+    char getPointColorWhite(int rectangleLargeur, int x , int y);
 
-    char TransparentColor =0 ;     
-    std::vector<char> m_Img;
-//protected:
-    int m_iWidth;
-    int m_iHeight;
-    //Point m_Coord;
-    //Croix m_MaCroix;
+    //Setters
+    void setPointColorWhite(int numCharColorWhite);
+protected:
+    std::vector<char> m_FigureImg;
+    Point *m_pFigureCoord;
+    int m_iFigureWidth;
+    int m_iFigureHeight;
 };
 
 

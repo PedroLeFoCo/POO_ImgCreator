@@ -1,25 +1,28 @@
 #include "Croix.h"
 
+Croix::Croix(int width, int height)
+{
+    std::cout<<"In Croix Constructor"<<std::endl;
+    m_CroixWidth = width;
+    m_CroixHeight = height;
 
-
-void Croix::tracerCroix()
-{    
-    m_Img.resize(m_iWidth * m_iHeight);
-    //Dessin de la ligne verticale a partir du centre de la croix
-    for(int i=m_Centre.getCoordY()-(m_iLongueur_v/2);i<m_Centre.getCoordY()+(m_iLongueur_v/2);i++)
-    {
-        //trace.set(m_Centre.x,i);//x,y
-        //setPoint();
-        setPoint(m_Centre);
-    }
-
-    //Dessin de la ligne horizontale a partir du centre de la croix
-    for(int i=m_Centre.getCoordX()-(m_iLongueur_h/2);i<m_Centre.getCoordX()+(m_iLongueur_h/2);i++)
-    {
-        //trace.set(i,m_Centre.y);//x,y
-        //setPoint(trace);
-        setPoint(m_Centre);
-    }
-    std::cout<<"Methode tracer CROIX FINIE"<<std::endl;
+    m_FigureImg.resize(m_CroixHeight * m_CroixWidth);
+    std::cout<<"After Resize"<<std::endl;
 }
 
+void Croix::tracerCroix()
+{
+    //Tracer la croix
+    //On trace le trait horizontal de la croix
+    for(int i = 0; i<m_CroixWidth; i++)
+    {
+        int numCharColorWhite = i * m_CroixWidth + m_CroixHeight/2;
+        setPointColorWhite(numCharColorWhite);
+    }
+    //On trace le trait vertical de la croix
+    for(int i = 0; i<m_CroixHeight; i++)
+    {
+        int numCharColorWhite = i + m_CroixHeight/2;
+        setPointColorWhite(numCharColorWhite);
+    }
+}

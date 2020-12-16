@@ -5,25 +5,21 @@
 #include <vector>
 #include "Figure.h"
 #include <iostream>
-#include "Rectangle.h"
 
-class Carre : public Rectangle
+class Carre : public Figure
 {
-    public:
-        Carre(int width,int height) : Rectangle (width, height)
-        {
-        
-        }
-        ~Carre()        //destructeur
-        {
-            std::cout << "Deleting Figure " << Name << std::endl;
-        }
-        std::string Name;
-    private:
-        Point AngleBasGauche;
-        int cote;
+public:
+    Carre(int cote);
+    ~Carre()        //destructeur
+    {
+        std::cout << "Deleting Figure " << std::endl;
+    }
+    //Methods
+    void tracerCarre(); 
+    //Getter
+    int getCarreCote(){return m_CarreCote;}
 
-    public:
-    void tracerCarre(Point AngleBasGauche, int cote); 
+private:
+    int m_CarreCote;
 };
 #endif /* CARRE_H */

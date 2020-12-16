@@ -1,66 +1,63 @@
 #include <iostream>
-
 #include "Figure.h"
+#include "Rectangle.h"
+#include "Carre.h"
+#include "Save.h"
 #include "Croix.h"
+#include "Segment.h"
 
-/*
-void Figure::setPoint()
+Figure::Figure()
 {
-    Point P;
-    img[P.m_iy * m_iWidth + P.m_ix] = 255;
 
 }
-*/
 
-/*const std::vector<char> Figure::img()
+Figure::Figure(Rectangle* rectangle)
 {
-    return img;
-}*/
-Figure::Figure(){}
-
-Figure::Figure(Rectangle *unRectangle)
-{
-    //m_iHeight=unRectangle->getLongueur_v();
-    //m_iWidth=unRectangle->getLongueur_h();
-    //m_Img.resize(m_iWidth * m_iHeight);
+  m_iFigureWidth = rectangle->getRectangleWidth();
+  std::cout<<rectangle->getRectangleWidth()<<std::endl;
+  m_iFigureHeight = rectangle->getRectangleHeight();
 }
 
-Figure::Figure(Croix *uneCroix)
-{    
-    m_iHeight=uneCroix->getLongueur_v();
-    m_iWidth=uneCroix->getLongueur_h();
-    //m_Img.resize(m_iWidth * m_iHeight);
-    std::cout<<"Size of img"<<m_Img.size()<<std::endl;
+Figure::Figure(Carre* carre)
+{
+  m_iFigureWidth = carre->getCarreCote();
 }
-/*
-Figure::Figure(int width, int height, Point coord)
-    : width(width), height(height) {
-  img.resize(width * height);
-}*/
+
+Figure::Figure(Croix* croix)
+{
+  m_iFigureWidth = croix->getCroixWidth();
+  m_iFigureHeight = croix->getCroixHeight();
+}
+
+Figure::Figure(Segment *segment)
+{
+  m_iFigureWidth = segment->getSegmentLongueur();
+  m_iFigureHeight = segment->getSegmentHauteur();
+}
+
 Figure::~Figure() {
-        std::cout << "Deleting Figure " << Name << std::endl;
-    }
+  std::cout << "Deleting Figure " << std::endl;
+}
 
 void Figure::clearFigure() {
-  for (std::vector<char>::iterator it = m_Img.begin(); it != m_Img.end();it++)
-   {
+  for (std::vector<char>::iterator it = m_FigureImg.begin(); it != m_FigureImg.end();it++)
+  {
     *it = 0;
   }
 }
 
-void Figure::save(std::string filename) {
-
-  SaveImg(filename, m_Img, m_iWidth, m_iHeight);
-}
-char Figure::getPointValue(int x, int y)
+void Figure::save(std::string filename, int figureWidth, int figureHeight)
 {
-  return m_Img[y*m_iWidth + x];
-
+  SaveImg(filename, m_FigureImg, figureWidth, figureHeight);
 }
 
-void Figure::setPoint(Point Pixel)
-{    
-    std::cout<<m_Img.size()<<std::endl;
-    //m_Img[Pixel.getCoordY() * m_iWidth + Pixel.getCoordX()]=255;
-    m_Img.at(Pixel.getCoordY() * m_iWidth + Pixel.getCoordX())=255;
+void Figure::setPointColorWhite(int numCharColorWhite)
+{
+  //x et y sont les tours de boucle de la méthode tracer rectangle
+  m_FigureImg[numCharColorWhite] = 255;
+}
+
+char Figure::getPointColorWhite(int rectangleLargeur, int x , int y)
+{
+  return m_FigureImg[x* rectangleLargeur + y];
 }

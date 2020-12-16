@@ -1,55 +1,24 @@
 #include "Carre.h"
 
-void Carre::tracerCarre(Point AngleBasGauche, int cote) //Constructeur qui trace le carre
+Carre::Carre(int cote)
 {
-    float a;   
-    int x1,x2;  //Coordonnées en abscisse des angles du carre
-    int y1,y2;  //Coordonnées en ordonnée des angles du carre
-    Point trace;
+    m_CarreCote = cote;
 
-                                            //  _
-    x1=AngleBasGauche.x;
-    x2=x1+cote;
+    m_FigureImg.resize(m_CarreCote * m_CarreCote);
+}
 
-    for(int i=x1; i<x2; i++)
+void Carre::tracerCarre()
+{ 
+    //Methods qui trace un carre 
+    //On part de 0 on parcourt la largeur du rectangle
+    for(int i=0; i<m_CarreCote; i++)
     {
-        trace.set(i,AngleBasGauche.y);
-        setPoint(trace);
+        //On parcout la hauteur du rectangle
+        for(int j=0; j<m_CarreCote; j++)
+        {
+            //passe le pixel correspondant au point en blanc
+            int numCharColorWhite = i * m_CarreCote +j;
+            setPointColorWhite(numCharColorWhite);
+        } 
     }
-
-                                            //  |_
-    y1=AngleBasGauche.y;
-    y2=y1+cote;
-
-    for(int i=y1; i<y2; i++)
-    {
-        trace.set(AngleBasGauche.x,i);
-        setPoint(trace);
-    }
-                                            //   _
-                                            //  |_
-    x1=AngleBasGauche.x;
-    x2=x1+cote;
-    y1=AngleBasGauche.y;
-    y2=y1+cote;
-
-    for(int i=x1; i<x2; i++)
-    {
-        trace.set(i,y2);
-        setPoint(trace);
-    }
-
-                                            //   _
-                                            //  |_|
-    x1=AngleBasGauche.x;
-    x2=x1+cote;
-    y1=AngleBasGauche.y;
-    y2=y1+cote;
-
-    for(int i=y1; i<y2; i++)
-    {
-        trace.set(x2,i);
-        setPoint(trace);
-    }
-
 }

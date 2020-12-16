@@ -1,25 +1,29 @@
 #ifndef SEGMENT_H
 #define SEGMENT_H
 
+#include <string>
+#include <vector>
 #include <iostream>
-//#include "Drawing.h"
 #include "Figure.h"
 
 
 class Segment : public Figure
 {
-    public:
-        //Segment(std::string Name) : Figure(Name)
-        //Segment(const int width, const int height, Point A, Point B) : Figure(width, height, coord){
-        Segment(const int width, const int height, Point A, Point B) : Figure(width, height){    
-            Constructor( A,  B);
-        };
-        void Constructor(Point A, Point B);
-    public:
-        ~Segment();
-         std::string Name="Segment";
-        Point A;
-        Point B;
+public:
+    Segment();
+    Segment(int longueur);
+    ~Segment()
+    {
+        std::string Name="Segment";
+    }
+
+    //Methods
+    int getSegmentLongueur(){return m_SegmentLongeur;}
+    int getSegmentHauteur(){return m_SegmentHauteur;}
+    void tracerSegment();
+public:
+    int m_SegmentLongeur;
+    int m_SegmentHauteur;
 };
 
 
