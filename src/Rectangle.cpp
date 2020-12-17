@@ -1,17 +1,17 @@
 #include "Rectangle.h"
 #include "Figure.h"
 
-Rectangle::Rectangle()
+Rectangle::Rectangle()//Constructeur
 {
     
 }
 
-Rectangle::~Rectangle()
+Rectangle::~Rectangle()//Destructeur du rectangle
 {
     std::cout << "Deleting Figure " << std::endl;
 }
 
-Rectangle::Rectangle(int width,int height)
+Rectangle::Rectangle(int width,int height)//Constructeur du rectangle -> A partir de largeur et hauteur
 {
     //Longueur et largeur du rectangle
     m_iRectangleWidth = width;

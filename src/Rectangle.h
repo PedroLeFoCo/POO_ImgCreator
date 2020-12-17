@@ -9,13 +9,13 @@
 class Rectangle : public Figure
 {
 public:
-    Rectangle();
-    Rectangle(int width, int height);
+    Rectangle();//Constructeur de rectangle
+    Rectangle(int width, int height);//Constructeur de rectangle -> A partir d'une largeur et hauteur
     ~Rectangle();        //destructeur
     
     //Getters
-    int getRectangleHeight(){return m_iRectangleHeight;}
-    int getRectangleWidth(){return m_iRectangleWidth;}
+    int getRectangleHeight(){return m_iRectangleHeight;}//On recupere une hauteur 
+    int getRectangleWidth(){return m_iRectangleWidth;}//On recupere une largeur
     //Methods
     void tracerRectangle(); 
 protected:
