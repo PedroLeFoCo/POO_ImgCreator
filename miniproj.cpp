@@ -42,11 +42,13 @@ int main(int argc, char **argv)
                     std::cout<<"\t Un segment horizontal       => 0\n"<<std::endl;
                     std::cout<<"\t Un rectangle     => 1\n"<<std::endl;
                     std::cout<<"\t Un segment via 2 points      =>2\n"<<std::endl;
+                    std::cout<<"\t Une croix          =>3\n"<<std::endl;
                     std::cin>>MenuPrincipal.m_iOptionDessin;
                     switch(MenuPrincipal.m_iOptionDessin)
                     {
                         case 0://Dessiner un segment
                         {
+                            std::cout<<"\t Rappel de la taille de l'image: "<<width<<" "<<"X"<<" "<<height<<std::endl;
                             std::cout<<"\t Saisissez la coordonnee en X de votre segment:\n"<<std::endl;
                             std::cin>>a;
 
@@ -72,6 +74,7 @@ int main(int argc, char **argv)
 
                         case 1://Dessiner un rectangle
                         {
+                            std::cout<<"\t Rappel de la taille de l'image: "<<width<<" "<<"X"<<" "<<height<<std::endl;
                             std::cout<<"\t Saisissez la coordonnee en X de votre Rectangle:\n"<<std::endl;
                             std::cin>>a;
 
@@ -99,6 +102,7 @@ int main(int argc, char **argv)
                         }break;
                         case 2://Dessiner un segment AB
                         {
+                            std::cout<<"\t Rappel de la taille de l'image: "<<width<<" "<<"X"<<" "<<height<<std::endl;
                             std::cout<<"\t Saisissez la coordonnee en X du point de départ de votre segment:\n"<<std::endl;
                             std::cin>>a;
                             std::cout<<"\t Saisissez la coordonnee en Y du point de départ de votre segment:\n"<<std::endl;
@@ -121,6 +125,34 @@ int main(int argc, char **argv)
                             L=0;
                             M=0;
                         }break;
+
+                        case 3://Dessiner une croix
+                        {
+                            std::cout<<"\t Rappel de la taille de l'image: "<<width<<" "<<"X"<<" "<<height<<std::endl;
+                            std::cout<<"\t Saisissez la coordonnee en X de votre Croix:\n"<<std::endl;
+                            std::cin>>a;
+
+                            std::cout<<"\t Saisissez la coordonnee en Y de votre Croix:\n"<<std::endl;
+                            std::cin>>b;
+
+                            std::cout<<"\t Saisissez la longueur de votre trait horizontal:\n"<<std::endl;
+                            std::cin>>L;
+                            std::cout<<"\t Saisissez la longueur de votre trait vertical:\n"<<std::endl;
+                            std::cin>>M;
+
+                            Point *pointOrigineCroix = new Point(a,b);
+
+                            VectorPointsOrigine.push_back(pointOrigineCroix);
+                            Croix *croix = new Croix(L,M);
+                            croix->tracerCroix();
+                            Figure *figure_croix= new Figure(croix);
+                            VectorFigures.push_back(figure_croix);
+                            a=0;
+                            b=0;
+                            L=0;
+                            M=0;
+                        }break;
+
                     }break;
                                         
                 }      
