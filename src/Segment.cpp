@@ -21,6 +21,7 @@ Segment::Segment(int longueur)
 void Segment::tracerSegment()
 {
     //Tracer un segment
+    
     //On trace le trait vertical de la croix
     std::cout<<"In method: tracerSegment()"<<m_SegmentLongeur<<std::endl;
 
