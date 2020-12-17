@@ -33,8 +33,8 @@ Croix.o: src/Croix.cpp
 Point.o: src/Point.cpp
 	g++ $(CFLAGS) -c src/Point.cpp $(LDFLAGS)
 
-Segment.o: src/Segment.cpp
-	g++ $(CFLAGS) -c src/Segment.cpp $(LDFLAGS)
+#Segment.o: src/Segment.cpp
+#	g++ $(CFLAGS) -c src/Segment.cpp $(LDFLAGS)
 
 menu.o: src/menu.cpp
 	g++ $(CFLAGS) -c src/menu.cpp $(LDFLAGS)

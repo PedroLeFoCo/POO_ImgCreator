@@ -14,25 +14,29 @@ Figure::Figure()
 Figure::Figure(Rectangle* rectangle)
 {
   m_iFigureWidth = rectangle->getRectangleWidth();
-  std::cout<<rectangle->getRectangleWidth()<<std::endl;
+  //std::cout<<rectangle->getRectangleWidth()<<std::endl;
   m_iFigureHeight = rectangle->getRectangleHeight();
+  m_FigureImg=rectangle->m_FigureImg;
 }
 
 Figure::Figure(Carre* carre)
 {
   m_iFigureWidth = carre->getCarreCote();
+  m_FigureImg= carre->m_FigureImg;
 }
 
 Figure::Figure(Croix* croix)
 {
   m_iFigureWidth = croix->getCroixWidth();
   m_iFigureHeight = croix->getCroixHeight();
+  m_FigureImg = croix->m_FigureImg;
 }
 
 Figure::Figure(Segment *segment)
 {
   m_iFigureWidth = segment->getSegmentLongueur();
   m_iFigureHeight = segment->getSegmentHauteur();
+  m_FigureImg = segment->m_FigureImg;
 }
 
 Figure::~Figure() {
@@ -59,5 +63,5 @@ void Figure::setPointColorWhite(int numCharColorWhite)
 
 char Figure::getPointColorWhite(int rectangleLargeur, int x , int y)
 {
-  return m_FigureImg[x* rectangleLargeur + y];
+  return m_FigureImg[y* rectangleLargeur + x];
 }

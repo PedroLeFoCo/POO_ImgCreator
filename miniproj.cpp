@@ -59,8 +59,8 @@ int main(int argc, char **argv)
                             std::cin>>c;
 
                             Segment *segment = new Segment(c);
-                            Figure *figure_segment= new Figure(segment);
                             segment->tracerSegment();
+                            Figure *figure_segment= new Figure(segment);
                             VectorFigures.push_back(figure_segment);
 
                             a=0;
@@ -86,8 +86,8 @@ int main(int argc, char **argv)
                             std::cout<<"\t Saisissez la valeur M de votre rectangle(en pixels):\n"<<std::endl;
                             std::cin>>M;
                             Rectangle *rectangle = new Rectangle(L, M);
-                            Figure *figure_rectangle= new Figure(rectangle);
                             rectangle->tracerRectangle();
+                            Figure *figure_rectangle= new Figure(rectangle);
                             VectorFigures.push_back(figure_rectangle);
 
                             a=0;

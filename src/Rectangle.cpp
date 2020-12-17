@@ -23,16 +23,22 @@ Rectangle::Rectangle(int width,int height)
 
 void Rectangle::tracerRectangle() //Constructeur qui trace le rectangle
 {
+    int i,j; // i=x=horizontal et j=y=vertical
     //On part de 0 on parcourt la largeur du rectangle
-    for(int i=0; i<m_iRectangleHeight; i++)
+    for(i=0; i<m_iRectangleWidth; i++)
     {
-        //On parcout la hauteur du rectangle
-        for(int j=0; j<m_iRectangleWidth; j++)
-        {
-            //passe le pixel correspondant au point en blanc
-            int numCharColorWhite = i * m_iRectangleWidth +j;
-            setPointColorWhite(numCharColorWhite);
-            //std::cout<<getPointColorWhite(getFigureWidth(),i,j)<<std::endl;            
-        }
+        j=0;
+        setPointColorWhite(j * m_iRectangleWidth +i);//bord haut
+        j=m_iRectangleHeight-1;
+        setPointColorWhite(j * m_iRectangleWidth +i); // Bord bas
+    }
+    //On parcout la hauteur du rectangle
+    for(j=0; j<m_iRectangleHeight; j++)
+    {
+        i=0;
+        setPointColorWhite( j * m_iRectangleWidth +i);//bord gauche
+        i=m_iRectangleWidth-1;
+        setPointColorWhite( j * m_iRectangleWidth +i);//bord droit
+        //std::cout<<getPointColorWhite(getFigureWidth(),i,j)<<std::endl;            
     }
 }
