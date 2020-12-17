@@ -54,7 +54,7 @@ void Figure::save(std::string filename, int figureWidth, int figureHeight)
 void Figure::setPointColorWhite(int numCharColorWhite)
 {
   //x et y sont les tours de boucle de la méthode tracer rectangle
-  m_FigureImg[numCharColorWhite] = 255;
+  m_FigureImg[numCharColorWhite] = 'a';
 }
 
 char Figure::getPointColorWhite(int rectangleLargeur, int x , int y)

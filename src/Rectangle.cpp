@@ -15,7 +15,6 @@ Rectangle::Rectangle(int width,int height)
 {
     //Longueur et largeur du rectangle
     m_iRectangleWidth = width;
-    std::cout<<"m_iRectangleWidth -> "<<m_iRectangleWidth<<std::endl;
     m_iRectangleHeight = height;
 
     //Resize de l'image du rectangle
@@ -33,6 +32,7 @@ void Rectangle::tracerRectangle() //Constructeur qui trace le rectangle
             //passe le pixel correspondant au point en blanc
             int numCharColorWhite = i * m_iRectangleWidth +j;
             setPointColorWhite(numCharColorWhite);
+            //std::cout<<getPointColorWhite(getFigureWidth(),i,j)<<std::endl;            
         }
     }
 }

@@ -25,8 +25,8 @@ Drawing::~Drawing() {}
 
 /* Save image to file  ="filename" */
 void Drawing::save(std::string filename) {
-
-  SaveImg(filename, m_DrawingImage, m_DrawingWidth, m_DrawingHeight);
+    DrawFigure();
+    SaveImg(filename, m_DrawingImage, m_DrawingWidth, m_DrawingHeight);
 }
 
 //            _             _                      _    _           _
@@ -54,19 +54,19 @@ void Drawing::createTestImage() {
 
 void Drawing::DrawFigure()
 {
-    std::cout<<"In DRAW FIGURE"<<std::endl;
-    std::cout<<m_DrawingPointOrigine->getPointCoordX()<<std::endl;
-    std::cout<<m_VectorFigures.at(0)->getFigureWidth()<<std::endl;
-    std::cout<<m_VectorFigures.at(0)->getFigureHeight()<<std::endl;
   //Tracer la figure sur le draw
   for(int n=0;n<m_VectorFigures.size();n++)
   {
     for(int i=m_VectorPointsOrigine.at(n)->getPointCoordY(); i < m_VectorPointsOrigine.at(n)->getPointCoordY()+m_VectorFigures.at(n)->getFigureHeight(); i++)
     {
         for(int j=m_VectorPointsOrigine.at(n)->getPointCoordX(); j < m_VectorPointsOrigine.at(n)->getPointCoordX()+m_VectorFigures.at(n)->getFigureWidth(); j++)
-        {        
-            int numChar = i * m_DrawingWidth + j;
-            m_DrawingImage.at(numChar) = 255;
+        {
+            //std::cout<<m_VectorFigures.at(n)->getPointColorWhite(m_VectorFigures.at(n)->getFigureWidth(),i,j)<<std::endl;
+            //if(m_VectorFigures.at(n)->getPointColorWhite(m_VectorFigures.at(n)->getFigureWidth(),i,j)==255)
+            //{
+                int numChar = i * m_DrawingWidth + j;
+                m_DrawingImage.at(numChar) = 255;
+            //}        
         }
         for(int l=m_VectorPointsOrigine.at(n)->getPointCoordX()+m_VectorFigures.at(n)->getFigureWidth();l<m_DrawingWidth;l++)
         {

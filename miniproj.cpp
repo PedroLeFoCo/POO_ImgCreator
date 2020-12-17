@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+#include "menu.h"
 #include "Drawing.h"
 #include "Figure.h"
 #include "Rectangle.h"
@@ -11,100 +12,109 @@
 const int width = 300;
 const int height = 400;
 
-int main(int argc, char **argv) {
-  char c;
-  Drawing draw(width, height);
-  draw.createTestImage();
-  //draw.clearImage();
-  draw.save(std::string("test_image.bmp"));
-
-  /*Point A;
-  A.set(0,0);
-  Figure MaFigure(width,height, A);
-  //MaFigure.clearImage();
-  for (int i=0; i<=200; i++)
-  {  
-    A.set(i,i);//x,y
-    MaFigure.setPoint(A);
-  }
-    MaFigure.save(std::string("MaFigure.bmp"));
-  Point B,C;
-  B.set(150,150);
-  C.set(0,0);
-  Segment MonSegment(width,height, B,C);
-
-  //MonSegment.Constructor(B,C);
-  MonSegment.save(std::string("Monsegment.bmp"));
-
-  for (int j = 0; j < height; j++) {
-    for (int i = 0; i < width; i++) {
-      //std::cout << "Point : " << i << "," << j << " --> " << MonSegment.getPointValue(i,j) << std::endl;
-      if (c=MonSegment.getPointValue(i,j) != 0)
-      {
-        std::cout << "Point : " << i << "," << j << "--> " << (int) c << std::endl;
-          //B.set(i,j);
-        //draw.setPoint(B);
-        draw.image[(j * width) + i]=(int) c;
-      }
-      //else
-        //std::cout << "Point : " << i << "," << j << ">>" << MonSegment.getPointValue(i,j) << std::endl;
-        
-    }
-  }
-  MonSegment.clearFigure();
-  MonSegment.A.set(150,150);
-  MonSegment.B.set(250,250);
-
-  for (int j = 0; j < height; j++) {
-    for (int i = 0; i < width; i++) {
-      //std::cout << "Point : " << i << "," << j << " --> " << MonSegment.getPointValue(i,j) << std::endl;
-      if (c=MonSegment.getPointValue(i,j) != 0)
-      {
-        std::cout << "Point : " << i << "," << j << "--> " << (int) c << std::endl;
-          //B.set(i,j);
-        //draw.setPoint(B);
-        draw.image[(j * width) + i]=(int) c;
-      }
-      //else
-        //std::cout << "Point : " << i << "," << j << ">>" << MonSegment.getPointValue(i,j) << std::endl;
-        
-    }
-  }  
-  */
+int main(int argc, char **argv) 
+{
+    char c;
+    int exit_Prog=0;
+    int a=0,b=0;c=0;
+    int L=0,M=0;
+    Drawing draw(width, height);
+    Menu MenuPrincipal;
     std::vector<Figure*> VectorFigures;
     std::vector<Point*> VectorPointsOrigine;
-  //Instanciation point origine du rectangle
-  Point *pointOrigineRectangle = new Point(40,50);
 
-    VectorPointsOrigine.push_back(pointOrigineRectangle);
+    std::cout<<"\n**************************************************\n"<<std::endl;
+    std::cout<<"\n\tBienvenu au Mini Projet: Dessins Simples\n"<<std::endl;
+    std::cout<<"\n**************************************************\n"<<std::endl;
 
-  Rectangle *rectangle = new Rectangle(50, 70);
-  Figure *figure= new Figure(rectangle);
-  rectangle->tracerRectangle();
+        while(MenuPrincipal.m_iOptionMenu!=2)
+        {
+            std::cout<<"Veuillez choisir une option:\n\n"<<std::endl;            
+            std::cout<<"\t Dessiner une nouvelle figure     => 1\n"<<std::endl;
+            std::cout<<"\t Quitter le programme             => 2\n"<<std::endl;
+            std::cin>>MenuPrincipal.m_iOptionMenu;
+            switch(MenuPrincipal.m_iOptionMenu)
+            {
+                
+                case 1://Menu pour ajouter des figures
+                {
+                    std::cout<<"Quelle figure voulez-vous dessiner?:\n\n"<<std::endl;
+                    std::cout<<"\t Un segment       => 0\n"<<std::endl;
+                    std::cout<<"\t Un rectangle     => 1\n"<<std::endl;
+                    std::cin>>MenuPrincipal.m_iOptionDessin;
+                    switch(MenuPrincipal.m_iOptionDessin)
+                    {
+                        case 0://Dessiner un segment
+                        {
+                            std::cout<<"\t Saisissez la coordonnee en X de votre segment:\n"<<std::endl;
+                            std::cin>>a;
 
-    VectorFigures.push_back(figure);
+                            std::cout<<"\t Saisissez la coordonnee en Y de votre segment:\n"<<std::endl;
+                            std::cin>>b;
 
-    Point *pointOrigineSegment = new Point(25,250);
+                            Point *pointOrigineSegment = new Point(a,b);
+                            VectorPointsOrigine.push_back(pointOrigineSegment);
 
-    VectorPointsOrigine.push_back(pointOrigineSegment);
+                            std::cout<<"\t Saisissez la taille de votre segment (en pixels):\n"<<std::endl;
+                            std::cin>>c;
 
-  Segment *segment = new Segment(200);
-  Figure *figure_segment= new Figure(segment);
-    segment->tracerSegment();
+                            Segment *segment = new Segment(c);
+                            Figure *figure_segment= new Figure(segment);
+                            segment->tracerSegment();
+                            VectorFigures.push_back(figure_segment);
 
-    VectorFigures.push_back(figure_segment);
+                            a=0;
+                            b=0;
+                            c=0;
+                            
+                        }break;                            
 
-  Croix *croix = new Croix(20,30);
-  Figure *figure_croix = new Figure(croix);
-    croix->tracerCroix();
-  //rectangle->save("rectangle.bmp", rectangle->getRectangleWidth(), rectangle->getRectangleHeight());
+                        case 1://Dessiner un rectangle
+                        {
+                            std::cout<<"\t Saisissez la coordonnee en X de votre Rectangle:\n"<<std::endl;
+                            std::cin>>a;
 
-  Drawing drawfigure(VectorFigures, VectorPointsOrigine, width, height);
+                            std::cout<<"\t Saisissez la coordonnee en Y de votre Rectangle:\n"<<std::endl;
+                            std::cin>>b;
 
-  drawfigure.DrawFigure();
+                            Point *pointOrigineRectangle = new Point(a,b);
+                            VectorPointsOrigine.push_back(pointOrigineRectangle);
 
-  drawfigure.save(std::string("test_image2.bmp"));
+                            std::cout<<"\t Saisissez la valeur L de votre rectangle(en pixels):\n"<<std::endl;
+                            std::cin>>L;
 
+                            std::cout<<"\t Saisissez la valeur M de votre rectangle(en pixels):\n"<<std::endl;
+                            std::cin>>M;
+                            Rectangle *rectangle = new Rectangle(L, M);
+                            Figure *figure_rectangle= new Figure(rectangle);
+                            rectangle->tracerRectangle();
+                            VectorFigures.push_back(figure_rectangle);
 
-  return 0;
+                            a=0;
+                            b=0;
+                            L=0;
+                            M=0;
+                            
+                        }break;
+                            
+                    }break;
+                                        
+                }      
+
+                case 2://Sortir du programme et sauvegarder
+                {
+                    std::cout<<"A Bientot!!\n\n"<<std::endl;
+                    Drawing draw(VectorFigures,VectorPointsOrigine,width,height);
+                    draw.save(std::string("MonDrawing.bmp"));
+                    exit_Prog=1;
+                    
+                }break;
+
+                case 3://Autre chose...
+                {}
+                    break;                                
+                
+            }
+        }        
+    return 0;
 }

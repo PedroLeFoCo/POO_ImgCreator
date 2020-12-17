@@ -27,12 +27,12 @@ public:
     void save(std::string filename, int figureWidth, int figureHeight);
     void clearFigure();
     //Getters
-    int getFigureWidth(){return m_iFigureWidth;}
-    int getFigureHeight(){return m_iFigureHeight;}
+    int getFigureWidth(){return m_iFigureWidth;}    //On recupere la largeur de l'image
+    int getFigureHeight(){return m_iFigureHeight;}  //On recupere la hauteur de l'image
     char getPointColorWhite(int rectangleLargeur, int x , int y);
 
     //Setters
-    void setPointColorWhite(int numCharColorWhite);
+    void setPointColorWhite(int numCharColorWhite); //On écrit une valeur 255 (Blanc) dans un pixel donné
 protected:
     std::vector<char> m_FigureImg;
     Point *m_pFigureCoord;
