@@ -6,24 +6,23 @@
 #include <iostream>
 #include "Figure.h"
 
-
-
 // class Cercle
 class Cercle: public Figure {
 public :
-	Cercle();     // Constructeur
+	Cercle();                                       // Constructeur
     Cercle(int centreX, int centreY, int rayon);
-	~Cercle()     // Destructeur
+	~Cercle()                                       // Destructeur
     {
         std::cout << "Deleting Figure " << Name << std::endl;
     }
 
 // methode
-    int getCercleCentreX ()  
-    int getCercleCentrey ()  
-    int getCercleRayon ()
+    int getCercleCentreX ()  //On recupere le X du centre du cercle
+    int getCercleCentrey ()  //On recupere le Y du centre du cercle
+    int getCercleRayon ()       //On recupere le rayon ddu cercle
     std::string Name;
-    void tracerCercle(int CentreX, int CentreY);
+
+    void tracerCercle(int CentreX, int CentreY, int rayon);
     
 private :
 	int centreX;
