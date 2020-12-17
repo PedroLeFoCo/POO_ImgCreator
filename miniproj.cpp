@@ -116,7 +116,7 @@ int main(int argc, char **argv)
                             Point *PointA = new Point(a,b);
                             Point *PointB = new Point(L,M);
 
-                            VectorPointsOrigine.push_back(new Point(0,0));
+                            VectorPointsOrigine.push_back(PointA);
                             Segment *segment = new Segment(PointA, PointB);
                             segment->tracerSegmentAB();
                             Figure *figure_segment= new Figure(segment);
