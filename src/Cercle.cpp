@@ -6,7 +6,7 @@
 }
 
 
- void Croix::tracerCercle(int centreX, int centreY, int rayon)
+ void Cercle::tracerCercle(int centreX, int centreY, int rayon)
 {   
     /* Algorithme de trace d'arc de cercle de Bresenham */
 

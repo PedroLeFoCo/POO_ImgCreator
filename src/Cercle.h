@@ -6,7 +6,9 @@
 #include <iostream>
 #include "Figure.h"
 
-// class figure
+
+
+// class Cercle
 class Cercle: public Figure {
 public :
 	Cercle();     // Constructeur
