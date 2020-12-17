@@ -61,7 +61,7 @@ void Drawing::DrawFigure()
     {
         for(int j=m_VectorPointsOrigine.at(n)->getPointCoordX(); j < m_VectorPointsOrigine.at(n)->getPointCoordX()+m_VectorFigures.at(n)->getFigureWidth(); j++)
         {
-            //std::cout<<m_VectorFigures.at(n)->getPointColorWhite(m_VectorFigures.at(n)->getFigureWidth(),i,j)<<std::endl;
+            std::cout<<m_VectorFigures.at(n)->getPointColorWhite(m_VectorFigures.at(n)->getFigureWidth(),i,j)<<std::endl;
             //if(m_VectorFigures.at(n)->getPointColorWhite(m_VectorFigures.at(n)->getFigureWidth(),i,j)==255)
             //{
                 int numChar = i * m_DrawingWidth + j;
