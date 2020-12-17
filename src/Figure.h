@@ -33,6 +33,8 @@ public:
 
     //Setters
     void setPointColorWhite(int numCharColorWhite); //On écrit une valeur 255 (Blanc) dans un pixel donné
+    void setPointColorWhite(int x, int y);
+    void setPointColorWhite(Point P);
 protected:
     std::vector<char> m_FigureImg;
     Point *m_pFigureCoord;

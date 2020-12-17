@@ -61,6 +61,18 @@ void Figure::setPointColorWhite(int numCharColorWhite)
   m_FigureImg[numCharColorWhite] = 'a';
 }
 
+void Figure::setPointColorWhite(int x, int y)
+{
+  //x et y sont les tours de boucle de la méthode tracer rectangle
+  m_FigureImg[y * getFigureWidth() + x] = 'a';
+}
+
+void Figure::setPointColorWhite(Point P)
+{
+  //x et y sont les tours de boucle de la méthode tracer rectangle
+  m_FigureImg[P.getPointCoordY()  * getFigureWidth() + P.getPointCoordX()] = 'a';
+}
+
 char Figure::getPointColorWhite(int rectangleLargeur, int x , int y)
 {
   return m_FigureImg[y* rectangleLargeur + x];
