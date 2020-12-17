@@ -11,7 +11,7 @@ class Segment : public Figure
 public:
     Segment();
     Segment(int longueur);
-    Segment(Point A, Point B);
+    Segment(Point *A, Point *B);
     ~Segment()
     {
         std::string Name="Segment";
