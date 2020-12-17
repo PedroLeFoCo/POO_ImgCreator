@@ -39,8 +39,9 @@ int main(int argc, char **argv)
                 case 1://Menu pour ajouter des figures
                 {
                     std::cout<<"Quelle figure voulez-vous dessiner?:\n\n"<<std::endl;
-                    std::cout<<"\t Un segment       => 0\n"<<std::endl;
+                    std::cout<<"\t Un segment horizontal       => 0\n"<<std::endl;
                     std::cout<<"\t Un rectangle     => 1\n"<<std::endl;
+                    std::cout<<"\t Un segment via 2 points      =>2\n"<<std::endl;
                     std::cin>>MenuPrincipal.m_iOptionDessin;
                     switch(MenuPrincipal.m_iOptionDessin)
                     {
@@ -96,7 +97,30 @@ int main(int argc, char **argv)
                             M=0;
                             
                         }break;
-                            
+                        case 2://Dessiner un segment AB
+                        {
+                            std::cout<<"\t Saisissez la coordonnee en X du point de départ de votre segment:\n"<<std::endl;
+                            std::cin>>a;
+                            std::cout<<"\t Saisissez la coordonnee en Y du point de départ de votre segment:\n"<<std::endl;
+                            std::cin>>b;
+                            std::cout<<"\t Saisissez la coordonnee en X du point d'arrivée de votre segment:\n"<<std::endl;
+                            std::cin>>L;
+                            std::cout<<"\t Saisissez la coordonnee en Y du point d'arrivée de votre segment:\n"<<std::endl;
+                            std::cin>>M;
+
+                            Point *PointA = new Point(a,b);
+                            Point *PointB = new Point(L,M);
+
+                            VectorPointsOrigine.push_back(new Point(0,0));
+                            Segment *segment = new Segment(PointA, PointB);
+                            segment->tracerSegmentAB();
+                            Figure *figure_segment= new Figure(segment);
+                            VectorFigures.push_back(figure_segment);
+                            a=0;
+                            b=0;
+                            L=0;
+                            M=0;
+                        }break;
                     }break;
                                         
                 }      
