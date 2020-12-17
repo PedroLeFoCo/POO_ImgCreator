@@ -1,6 +1,6 @@
 #include "Croix.h"
 
-Croix::Croix(int width, int height)
+Croix::Croix(int width, int height) //Constructeur de la croix
 {
     m_CroixWidth = width;
     m_CroixHeight = height;
@@ -8,7 +8,7 @@ Croix::Croix(int width, int height)
     m_FigureImg.resize(m_CroixHeight * m_CroixWidth);
 }
 
-void Croix::tracerCroix()
+void Croix::tracerCroix()   //Methode pour tracer la croix
 {
     //On trace le trait vertical 
     for(int i = 0; i<m_CroixHeight; i++)

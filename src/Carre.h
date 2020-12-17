@@ -9,17 +9,18 @@
 class Carre : public Figure
 {
 public:
-    Carre(int cote);
-    ~Carre()        //destructeur
+    Carre(int cote);    //Constructeur
+    ~Carre()        //Destructeur
     {
         std::cout << "Deleting Figure " << std::endl;
     }
     //Methods
-    void tracerCarre(); 
+    void tracerCarre(); //Methode pour tracer un carre
     //Getter
-    int getCarreCote(){return m_CarreCote;}
+    int getCarreCote(){return m_CarreCote;}//Recuperer la taille d'un cote du carre
 
 private:
+    //Membres
     int m_CarreCote;
 };
 #endif /* CARRE_H */

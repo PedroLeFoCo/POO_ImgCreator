@@ -7,8 +7,8 @@
 class Menu
 {
     public:
-        Menu(/* args */);
-        ~Menu();        
+        Menu(/* args */);//Constructeur
+        ~Menu();        //Destructeur
         int m_iOptionMenu;
         int m_iOptionDessin;
     protected:        

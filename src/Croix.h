@@ -6,24 +6,24 @@
 #include <vector>
 #include "Figure.h"
 
-// Lorsqu'on déclare une classe dérivée, on utilise la syntaxe suivante : 
 class Croix : public Figure {
 public:
-    Croix(int width,int height);
-    ~Croix() {
+    Croix(int width,int height);//Constructeur
+    ~Croix() {                  //Destructeur
         std::cout << "Deleting Figure " << Name << std::endl;
     }
 
-    //Methods
-    int getCroixWidth(){return m_CroixWidth;}
-    int getCroixHeight(){return m_CroixHeight;}
+    //Getters
+    int getCroixWidth(){return m_CroixWidth;}//On recupere la largeur de la croix
+    int getCroixHeight(){return m_CroixHeight;}//On recupere la hauteur de la croix
     std::string Name;
 private:
+    //Membres
     int m_CroixWidth;
     int m_CroixHeight;
 
 public:
-    void tracerCroix();
+    void tracerCroix();//Methode pour tracer la croix
 
 };
 

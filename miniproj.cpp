@@ -18,10 +18,11 @@ int main(int argc, char **argv)
     int exit_Prog=0;
     int a=0,b=0;c=0;
     int L=0,M=0;
-    Drawing draw(width, height);
-    Menu MenuPrincipal;
-    std::vector<Figure*> VectorFigures;
-    std::vector<Point*> VectorPointsOrigine;
+    Drawing draw(width, height);    //Création d'un objet Drawing, avec les dimensions width (300) X height (400)
+    Menu MenuPrincipal;             //Création d'un nouveau objet Menu
+    std::vector<Figure*> VectorFigures; //Initialisation d'un vecteur de figures, contenant toutes les figures a dessiner dans 
+                                        //l'espace drawing
+    std::vector<Point*> VectorPointsOrigine;//Initialisation d'un vecteur de points d'origine de chaque figure a dessiner 
 
     std::cout<<"\n**************************************************\n"<<std::endl;
     std::cout<<"\n\tBienvenu au Mini Projet: Dessins Simples\n"<<std::endl;
@@ -42,27 +43,29 @@ int main(int argc, char **argv)
                     std::cout<<"\t Un segment horizontal       => 0\n"<<std::endl;
                     std::cout<<"\t Un rectangle     => 1\n"<<std::endl;
                     std::cout<<"\t Un segment via 2 points      =>2\n"<<std::endl;
+                    std::cout<<"\t Une croix          =>3\n"<<std::endl;
                     std::cin>>MenuPrincipal.m_iOptionDessin;
                     switch(MenuPrincipal.m_iOptionDessin)
                     {
                         case 0://Dessiner un segment
                         {
+                            std::cout<<"\t Rappel de la taille de l'image: "<<width<<" "<<"X"<<" "<<height<<std::endl;
                             std::cout<<"\t Saisissez la coordonnee en X de votre segment:\n"<<std::endl;
                             std::cin>>a;
 
                             std::cout<<"\t Saisissez la coordonnee en Y de votre segment:\n"<<std::endl;
                             std::cin>>b;
 
-                            Point *pointOrigineSegment = new Point(a,b);
-                            VectorPointsOrigine.push_back(pointOrigineSegment);
+                            Point *pointOrigineSegment = new Point(a,b);    //Creation d'un nouveau point d'origine pour le segment (coordonnees [a,b])
+                            VectorPointsOrigine.push_back(pointOrigineSegment);//On ajoute le nouveau point dans le vecteur de points d'origine
 
                             std::cout<<"\t Saisissez la taille de votre segment (en pixels):\n"<<std::endl;
                             std::cin>>c;
 
-                            Segment *segment = new Segment(c);
-                            segment->tracerSegment();
-                            Figure *figure_segment= new Figure(segment);
-                            VectorFigures.push_back(figure_segment);
+                            Segment *segment = new Segment(c);  //On cree un nouveau segment avec une longueur "c"
+                            segment->tracerSegment();           //On trace le segment dans son image
+                            Figure *figure_segment= new Figure(segment);    //On place Le segment dans une nouvelle figure
+                            VectorFigures.push_back(figure_segment);    //On ajoute la nouvelle figure Segment dans le vecteur de figures 
 
                             a=0;
                             b=0;
@@ -72,13 +75,14 @@ int main(int argc, char **argv)
 
                         case 1://Dessiner un rectangle
                         {
+                            std::cout<<"\t Rappel de la taille de l'image: "<<width<<" "<<"X"<<" "<<height<<std::endl;
                             std::cout<<"\t Saisissez la coordonnee en X de votre Rectangle:\n"<<std::endl;
                             std::cin>>a;
 
                             std::cout<<"\t Saisissez la coordonnee en Y de votre Rectangle:\n"<<std::endl;
                             std::cin>>b;
 
-                            Point *pointOrigineRectangle = new Point(a,b);
+                            Point *pointOrigineRectangle = new Point(a,b);  //Creation d'un point d'origine pour le rectangle (coordonnees [a,b])
                             VectorPointsOrigine.push_back(pointOrigineRectangle);
 
                             std::cout<<"\t Saisissez la valeur L de votre rectangle(en pixels):\n"<<std::endl;
@@ -86,10 +90,10 @@ int main(int argc, char **argv)
 
                             std::cout<<"\t Saisissez la valeur M de votre rectangle(en pixels):\n"<<std::endl;
                             std::cin>>M;
-                            Rectangle *rectangle = new Rectangle(L, M);
-                            rectangle->tracerRectangle();
-                            Figure *figure_rectangle= new Figure(rectangle);
-                            VectorFigures.push_back(figure_rectangle);
+                            Rectangle *rectangle = new Rectangle(L, M); //On cree un nouveau rectangle de longueur L et Largeur M
+                            rectangle->tracerRectangle();               //On trace le nouveau rectangle dans son image
+                            Figure *figure_rectangle= new Figure(rectangle);    //On cree une nouvelle figure Rectangle
+                            VectorFigures.push_back(figure_rectangle);  //La figure rectangle est ajoutée dans le vecteur de figures
 
                             a=0;
                             b=0;
@@ -99,6 +103,7 @@ int main(int argc, char **argv)
                         }break;
                         case 2://Dessiner un segment AB
                         {
+                            std::cout<<"\t Rappel de la taille de l'image: "<<width<<" "<<"X"<<" "<<height<<std::endl;
                             std::cout<<"\t Saisissez la coordonnee en X du point de départ de votre segment:\n"<<std::endl;
                             std::cin>>a;
                             std::cout<<"\t Saisissez la coordonnee en Y du point de départ de votre segment:\n"<<std::endl;
@@ -121,6 +126,34 @@ int main(int argc, char **argv)
                             L=0;
                             M=0;
                         }break;
+
+                        case 3://Dessiner une croix
+                        {
+                            std::cout<<"\t Rappel de la taille de l'image: "<<width<<" "<<"X"<<" "<<height<<std::endl;
+                            std::cout<<"\t Saisissez la coordonnee en X de votre Croix:\n"<<std::endl;
+                            std::cin>>a;
+
+                            std::cout<<"\t Saisissez la coordonnee en Y de votre Croix:\n"<<std::endl;
+                            std::cin>>b;
+
+                            std::cout<<"\t Saisissez la longueur de votre trait horizontal:\n"<<std::endl;
+                            std::cin>>L;
+                            std::cout<<"\t Saisissez la longueur de votre trait vertical:\n"<<std::endl;
+                            std::cin>>M;
+
+                            Point *pointOrigineCroix = new Point(a,b);  //Creation d'un point d'origine pour la nouvelle croix (coordonnees [a,b])
+
+                            VectorPointsOrigine.push_back(pointOrigineCroix);   //Ajout du point d'origine de la croix dans le vecteur 
+                            Croix *croix = new Croix(L,M);  //Creation d'un nouveau objet Croix
+                            croix->tracerCroix();   //On trace la croix dans son image
+                            Figure *figure_croix= new Figure(croix);    //Création d'une nouvelle figure Croix
+                            VectorFigures.push_back(figure_croix);  //On ajoute la nouvelle figure Croix dans le vecteur de figures 
+                            a=0;
+                            b=0;
+                            L=0;
+                            M=0;
+                        }break;
+
                     }break;
                                         
                 }      

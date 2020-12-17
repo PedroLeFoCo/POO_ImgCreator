@@ -25,7 +25,7 @@ Drawing::~Drawing() {}
 
 /* Save image to file  ="filename" */
 void Drawing::save(std::string filename) {
-    DrawFigure();
+    DrawFigure();   //Methode pour tracer toutes les figures dans l'espace Drawing
     SaveImg(filename, m_DrawingImage, m_DrawingWidth, m_DrawingHeight);
 }
 
@@ -56,33 +56,18 @@ void Drawing::DrawFigure()
 {
   clearImage();
   //Tracer la figure sur le draw
-  for(int n=0;n<m_VectorFigures.size();n++) //Je parcoure mes figures
-  {
-/*    for(int x=m_VectorPointsOrigine.at(n)->getPointCoordX(); x < m_VectorPointsOrigine.at(n)->getPointCoordX()+m_VectorFigures.at(n)->getFigureWidth();x++)
+  for(int n=0;n<m_VectorFigures.size();n++) //Je parcoure mon vecteur de figures 
     {
-        for(int y=m_VectorPointsOrigine.at(n)->getPointCoordY(); y < m_VectorPointsOrigine.at(n)->getPointCoordY()+m_VectorFigures.at(n)->getFigureHeight();y++)
-        {
-            //std::cout<<m_VectorFigures.at(n)->getPointColorWhite(m_VectorFigures.at(n)->getFigureWidth(),i,j)<<std::endl;
-            if(m_VectorFigures.at(n)->getPointColorWhite(m_VectorFigures.at(n)->getFigureWidth(),x-m_VectorFigures.at(n)->getFigureWidth(),y-m_VectorFigures.at(n)->getFigureHeight())!=0)
-            {
-                int numChar = y * m_DrawingWidth + x;
-                m_DrawingImage.at(numChar) = m_VectorFigures.at(n)->getPointColorWhite(m_VectorFigures.at(n)->getFigureWidth(),x-m_VectorFigures.at(n)->getFigureWidth(),y-m_VectorFigures.at(n)->getFigureHeight());
-            }        
-        }
-        for(int l=m_VectorPointsOrigine.at(n)->getPointCoordX()+m_VectorFigures.at(n)->getFigureWidth();l<m_DrawingWidth;l++)
-        {
-            int numChar = i * (m_DrawingWidth)+ l;
-            m_DrawingImage.at(numChar) = 0;
-        }
- */
-      for (int x=0; x<m_VectorFigures.at(n)->getFigureWidth();x++)
+
+      for (int x=0; x<m_VectorFigures.at(n)->getFigureWidth();x++)//Parcour des abcisses de la figure
       {
-        for (int y=0; y<m_VectorFigures.at(n)->getFigureHeight();y++)
+        for (int y=0; y<m_VectorFigures.at(n)->getFigureHeight();y++)//Parcour des coordonnees de la figure 
         {
-          if(m_VectorFigures.at(n)->getPointColorWhite(m_VectorFigures.at(n)->getFigureWidth(),x,y)!=0)
-          {
-            m_DrawingImage.at((y+m_VectorPointsOrigine.at(n)->getPointCoordY()) * m_DrawingWidth + x+m_VectorPointsOrigine.at(n)->getPointCoordX())=255;
-          }
+            if(m_VectorFigures.at(n)->getPointColorWhite(m_VectorFigures.at(n)->getFigureWidth(),x,y)!=0)//Si le pixel a ete set dans l'image
+            {
+                //On dessine avec du blanc
+                m_DrawingImage.at((y+m_VectorPointsOrigine.at(n)->getPointCoordY()) * m_DrawingWidth + x+m_VectorPointsOrigine.at(n)->getPointCoordX())=255;
+            }
         }
       }
     }
