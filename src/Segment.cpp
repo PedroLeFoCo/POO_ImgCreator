@@ -49,7 +49,7 @@ Segment::Segment(Point *C, Point *D)
             A.setPointCoordX(0);
             A.setPointCoordY(0);
             B.setPointCoordX(0);
-            B.setPointCoordY(B.getPointCoordY()-A.getPointCoordY());
+            B.setPointCoordY(m_SegmentHauteur);
         }
         else
         {
@@ -57,7 +57,7 @@ Segment::Segment(Point *C, Point *D)
             A.setPointCoordX(0);
             A.setPointCoordY(0);
             B.setPointCoordX(0);
-            B.setPointCoordY(A.getPointCoordY()-B.getPointCoordY());
+            B.setPointCoordY(m_SegmentHauteur);
         }
     }
     else if (A.getPointCoordX()!=B.getPointCoordX() && A.getPointCoordY()==B.getPointCoordY()) //Segment horizontal
@@ -68,7 +68,7 @@ Segment::Segment(Point *C, Point *D)
             m_SegmentLongeur = B.getPointCoordX()-A.getPointCoordX();
             A.setPointCoordX(0);
             A.setPointCoordY(0);
-            B.setPointCoordX(B.getPointCoordX()-A.getPointCoordX());
+            B.setPointCoordX(m_SegmentLongeur);
             B.setPointCoordY(0);
         }
         else
@@ -76,10 +76,11 @@ Segment::Segment(Point *C, Point *D)
             m_SegmentLongeur = A.getPointCoordX()-B.getPointCoordX();
             A.setPointCoordX(0);
             A.setPointCoordY(0);
-            B.setPointCoordX(A.getPointCoordX()-B.getPointCoordX());
+            B.setPointCoordX(m_SegmentLongeur);
             B.setPointCoordY(0);
         }
     }
+    
     else //Segment oblique
     {
         if (A.getPointCoordX()<B.getPointCoordX() && A.getPointCoordY()<B.getPointCoordY()) //A\B
@@ -104,12 +105,14 @@ Segment::Segment(Point *C, Point *D)
         else
             m_SegmentHauteur = A.getPointCoordY()-B.getPointCoordY();
     }
-
     m_FigureImg.resize(m_SegmentLongeur*m_SegmentHauteur);
+    m_iFigureWidth=m_SegmentLongeur;
+    m_iFigureHeight=m_SegmentHauteur;
 }
 void Segment::tracerSegmentAB()
 {
     Point P;
+    std::cout<<"W & H = " << m_iFigureWidth << ":" << m_iFigureHeight << std::endl;
     P.setPointCoordX(A.getPointCoordX());
     P.setPointCoordY(A.getPointCoordY());
     std::cout << "tracerSegmentAB loading" << std::endl;
@@ -123,7 +126,8 @@ void Segment::tracerSegmentAB()
                 //P.setPointCoordX(A.getPointCoordX());
                 P.setPointCoordX(0);
                 P.setPointCoordY(i);
-                setPointColorWhite(P);
+                setPointColorWhite(P.getPointCoordX(), P.getPointCoordY());
+                std::cout<<getPointColorWhite(m_SegmentLongeur, 0,i)<< " ";
             }
         }
         else
@@ -139,13 +143,13 @@ void Segment::tracerSegmentAB()
     else if (A.getPointCoordX()!=B.getPointCoordX() && A.getPointCoordY()==B.getPointCoordY()) //Segment horizontal
     {
         if (A.getPointCoordX()<B.getPointCoordX())
-        for (int i=0;i<=B.getPointCoordX()-A.getPointCoordX();i++)
-        {
-            P.setPointCoordX(i);
-            //P.setPointCoordY(A.getPointCoordY());
-            P.setPointCoordY(0);
-            setPointColorWhite(P);
-        }
+            for (int i=0;i<=B.getPointCoordX()-A.getPointCoordX();i++)
+            {
+                P.setPointCoordX(i);
+                //P.setPointCoordY(A.getPointCoordY());
+                P.setPointCoordY(0);
+                setPointColorWhite(P);
+            }
         else
             //for (int i=A.getPointCoordX();i>=B.getPointCoordX();i--)
             for (int i=0;i>=A.getPointCoordX()-B.getPointCoordX();i--)
